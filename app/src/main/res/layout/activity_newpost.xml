@@ -1,0 +1,163 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/windowBackground">
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        </android.support.design.widget.AppBarLayout>
+
+       <android.support.v4.widget.DrawerLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_marginTop="?attr/actionBarSize"
+           android:padding="15sp"
+           android:paddingTop="25sp">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/isideskripsi"
+                   android:background="#fff"
+                   android:hint="Bagi Informasi"
+                   android:padding="25sp"/>
+
+               <TableLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:padding="15sp">
+
+                   <TableRow
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:background="#fff"
+                       android:layout_marginTop="10sp"
+                       android:padding="10sp"
+                       android:weightSum="4">
+
+                       <ImageButton
+                           android:id="@+id/UploadFoto"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/add1"
+                           android:background="#fff"
+                           android:paddingTop="5sp"
+                           android:paddingBottom="5sp"/>
+                       <TextView
+                           android:id="@+id/TeksUpload"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:hint="Upload Gambar"
+                           android:padding="10sp"
+                           android:layout_weight="2"/>
+                       <ImageView
+                            android:id="@+id/Preview"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:scaleType="fitXY"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/time"
+                           android:padding="5sp"
+                           android:layout_span="2"
+                           android:layout_toRightOf="@+id/TeksUpload"/>
+
+                   </TableRow>
+
+                   <TableRow
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:background="#fff"
+                       android:layout_marginTop="10sp"
+                       android:padding="10sp"
+                       android:weightSum="4">
+
+                       <ImageButton
+                           android:id="@+id/Location"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/gps1"
+                           android:background="#fff"
+                           android:paddingTop="5sp"
+                           android:paddingBottom="5sp"/>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:hint="Lokasi Anda"
+                           android:padding="10sp"
+                           android:layout_weight="2"
+                           android:layout_span="2"/>
+
+
+                   </TableRow>
+
+                   <TableRow
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:background="#fff"
+                       android:layout_marginTop="10sp"
+                       android:padding="10sp"
+                       android:weightSum="4">
+
+                       <ImageButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/categories1"
+                           android:background="#fff"
+                           android:paddingTop="10sp"
+                           android:paddingBottom="10sp"/>
+                       <Spinner
+                           android:id="@+id/spinner1"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:entries="@array/country_arrays"
+                           android:layout_weight="2"
+                           android:layout_span="2"/>
+
+                   </TableRow>
+
+                </TableLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+                   <Button
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/colorPrimaryDark"
+                       android:text="Bagikan"
+                       android:textColor="#fff"/>
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+       </android.support.v4.widget.DrawerLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

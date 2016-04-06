@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp"
+    android:background="@color/windowBackgroundSecondary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:background="@color/windowBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20sp"
+            android:paddingBottom="10sp">
+
+            <ImageView
+                android:id="@+id/search_item_image"
+                android:layout_width="36sp"
+                android:layout_height="36sp"
+                android:src="@drawable/jempol"
+                android:padding="5sp"
+                android:background="@color/windowBackground"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:textAppearance="@style/NormalText"
+                    android:textColor="@color/textColorPrimary"
+                    android:id="@+id/search_item_display_name"
+                    android:text="Andri Wibowo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textAppearance="@style/SmallText"
+                    android:textColor="@color/textColorSecondary"
+                    android:id="@+id/search_item_username"
+                    android:text="andrwbw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/search_item_subscribe_button"
+                android:text="Langganan"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="@style/TinyText"
+                android:textAllCaps="false"
+                android:background="@drawable/button_subscribe_0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10sp"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:id="@+id/search_item_post_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="245 POST"
+                android:layout_weight="1"
+                android:textAppearance="@style/TinyText"
+                android:textColor="@color/textColorSecondary"/>
+
+            <TextView
+                android:id="@+id/search_item_subscriber_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1024 BERLANGGANAN"
+                android:textAppearance="@style/TinyText"
+                android:textColor="@color/textColorSecondary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+</LinearLayout>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00bcd4</color>
+    <color name="colorPrimaryDark">#00bcd4</color>
+    <color name="colorSecondary">#ffffff</color>
+    <color name="linkColor">#00bcd4</color>
+    <color name="textColorPrimary">#616161</color>
+    <color name="textColorSecondary">#c3c3c3</color>
+    <color name="textColorLight">#fefefe</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="windowBackgroundSecondary">#f3f3f3</color>
+    <color name="navigationBarColor">#FFFFFF</color>
+    <color name="colorAccent">#e64a19</color>
+    <color name="title_row">#cbcbcb</color>
+    <color name="subtitle_row">#dddddd</color>
+    <color name="icon_color">#b2ebf2</color>
+    <color name="line_color">#dfdfdf</color>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/windowBackgroundSecondary">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_result_people"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:background="@color/windowBackgroundSecondary"/>
+
+</LinearLayout>

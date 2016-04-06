@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp"
+    android:background="@color/windowBackgroundSecondary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/windowBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp">
+
+            <TextView
+                android:id="@+id/search_event_place"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textAppearance="@style/TinyText"
+                android:textColor="@color/textColorSecondary"
+                android:text="STMIK Mikroskil Medan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/search_event_image"
+            android:layout_width="match_parent"
+            android:layout_height="270sp"
+            android:src="@drawable/cth"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10sp">
+
+            <ImageView
+                android:id="@+id/search_item_image"
+                android:layout_width="36sp"
+                android:layout_height="36sp"
+                android:src="@drawable/jempol"
+                android:padding="5sp"
+                android:background="@color/windowBackground"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/search_event_catagory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/SmallText"
+                    android:textColor="@color/textColorSecondary"
+                    android:text="Kecelakaan"/>
+
+                <TextView
+                    android:id="@+id/search_event_username"
+                    android:textAppearance="@style/NormalText"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bagas Sucipto"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/search_event_jempol_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:textAppearance="@style/SmallText"
+                android:textColor="@color/linkColor"
+                android:text="6"/>
+
+            <ImageView
+                android:layout_width="16sp"
+                android:layout_height="16sp"
+                android:src="@drawable/gear1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+</LinearLayout>

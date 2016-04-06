@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Jempol</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="action_search">Search</string>
+    <string-array name="country_arrays">
+        <item>Kemacetan</item>
+        <item>Kecelakaan</item>
+        <item>Kerusakan Rambu</item>
+        <item>Lainnya</item>
+    </string-array>
+    <string name="title_activity_sunting_profil">SuntingProfil</string>
+    <string name="title_activity_profil2">ProfilActivity2</string>
+
+    <string name="title_activity_my_post">MyPost</string>
+
+</resources>
