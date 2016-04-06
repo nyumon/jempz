@@ -60,6 +60,11 @@ public class MyPost extends AppCompatActivity {
 
     }
 
+    public void kekomentar(View view){
+        Intent intent = new Intent(this, Comment.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
 

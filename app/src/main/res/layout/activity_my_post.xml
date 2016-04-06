@@ -122,7 +122,7 @@
                             android:orientation="horizontal"
                             android:layout_weight="1">
 
-                            <ImageView
+                            <ImageButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="5sp"
@@ -146,11 +146,12 @@
                         android:orientation="horizontal"
                         android:layout_weight="1">
 
-                        <ImageView
+                        <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5sp"
-                            android:src="@drawable/comment"/>
+                            android:src="@drawable/comment"
+                            android:onClick="kekomentar"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

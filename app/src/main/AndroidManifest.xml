@@ -58,6 +58,14 @@
         <activity
             android:name=".MyPost"
             android:label="@string/title_activity_my_post"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".Comment"
+            android:label="@string/title_activity_comment"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".isicomment"
+            android:label="@string/title_activity_isicomment"
             android:theme="@style/MyMaterialTheme"></activity>
     </application>
 
