@@ -13,5 +13,7 @@
     <string name="title_activity_profil2">ProfilActivity2</string>
 
     <string name="title_activity_my_post">MyPost</string>
+    <string name="title_activity_comment">Comment</string>
+    <string name="title_activity_isicomment">isicomment</string>
 
 </resources>
