@@ -4,47 +4,53 @@
     android:layout_height="wrap_content"
     android:padding="15sp"
     android:gravity="center_vertical">
-
-    <RelativeLayout
-        android:id="@+id/konten"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/postThumb"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/jempol"
-            android:scaleType="centerCrop"
-            android:layout_marginRight="5dp"/>
-        <TextView
-            android:layout_marginLeft="10dp"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv">
+        <RelativeLayout
+            android:id="@+id/konten"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ridho"
-            android:textStyle="bold"
-            android:id="@+id/nama"
-            android:layout_toRightOf="@+id/postThumb"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" mengomentari"
-            android:id="@+id/kegeitan"
-            android:layout_toRightOf="@+id/nama"/>
-        <TextView
-            android:layout_toRightOf="@+id/kegeitan"
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="element_text"/>
-        <View
-            android:layout_marginTop="10sp"
-            android:layout_below="@+id/postThumb"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#727272">
-        </View>
-    </RelativeLayout>
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/postThumb"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/jempol"
+                android:scaleType="centerCrop"
+                android:layout_marginRight="5dp"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ridho"
+                android:textStyle="bold"
+                android:id="@+id/nama"
+                android:layout_toRightOf="@+id/postThumb"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" mengomentari"
+                android:id="@+id/kegeitan"
+                android:layout_toRightOf="@+id/nama"/>
+            <TextView
+                android:layout_toRightOf="@+id/kegeitan"
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="foto ini"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_age"
+                android:layout_toRightOf="@+id/postThumb"
+                android:layout_below="@+id/nama"
+                android:text="12 minute ago"
+                android:layout_marginLeft="10dp" />
 
-
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </FrameLayout>
