@@ -108,7 +108,6 @@ public class SearchFragmentTwo extends Fragment {
 
     public void initDataSet() {
 
-
         DataSet.clear();
 
         for(int i=0; i<5; i++) {
