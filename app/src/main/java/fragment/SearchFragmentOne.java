@@ -56,30 +56,30 @@ public class SearchFragmentOne extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         adapter = new SearchPeopleAdapter(new SearchPeopleAdapter.OnLoadMoreListener() {
-                @Override
-                public void onLoadMore() {
+            @Override
+            public void onLoadMore() {
 
-                    adapter.setProgressMore(true);
+                adapter.setProgressMore(true);
 
-                    new android.os.Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            DataSet.clear();
-                            adapter.setProgressMore(false);
+                new android.os.Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        DataSet.clear();
+                        adapter.setProgressMore(false);
 
-                            int start = adapter.getItemCount();
-                            int end = start + 5;
+                        int start = adapter.getItemCount();
+                        int end = start + 5;
 
-                            for (int i = start; i < end; i++) {
-                                DataSet.add(new SearchPeopleDataSet("Username " + i, "Display Name " + i, 1000+(24*i), 1000+(24*i), (i%2)==0?true:false));
-                            }
-
-                            adapter.addItemMore(DataSet);
-                            adapter.setMoreLoading(false);
+                        for (int i = start; i < end; i++) {
+                            DataSet.add(new SearchPeopleDataSet("Username " + i, "Display Name " + i, 1000+(24*i), 1000+(24*i), (i%2)==0?true:false));
                         }
-                    },2000);
-                }
-            });
+
+                        adapter.addItemMore(DataSet);
+                        adapter.setMoreLoading(false);
+                    }
+                },2000);
+            }
+        });
 
         adapter.setLinearLayoutManager(llm);
         adapter.setRecyclerView(recyclerView);
