@@ -128,7 +128,7 @@
                                 android:padding="5sp"
                                 android:background="@color/colorSecondary"
                                 android:id="@+id/jempol"
-                                android:src="@drawable/symbol"/>
+                                android:src="@drawable/thumb"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5sp"
                             android:background="@color/colorSecondary"
-                            android:src="@drawable/comment"
+                            android:src="@drawable/note"
                             android:onClick="kekomentar"/>
                         <TextView
                             android:layout_width="wrap_content"

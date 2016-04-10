@@ -4,7 +4,7 @@ package com.nyumon.jempol.Timeline;
  * Created by fajar on 05/04/16.
  */
 
-public class ItemObject {
+public class TimelineDataSet {
 
     private String name;
     private String time;
@@ -12,7 +12,7 @@ public class ItemObject {
     private int photo;
     private int photoAkun;
 
-    public ItemObject(int photoAkun, String name, String time, int photo, String judul) {
+    public TimelineDataSet(int photoAkun, String name, String time, int photo, String judul) {
         this.photoAkun = photoAkun;
         this.name      = name;
         this.time      = time;

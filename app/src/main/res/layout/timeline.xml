@@ -4,118 +4,166 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp"
+    android:paddingTop="10sp"
+    android:paddingBottom="10sp"
     android:gravity="center_horizontal"
-    android:padding="5dp">
+    app:cardBackgroundColor="@color/windowBackgroundSecondary">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cv"
         android:layout_gravity="center_horizontal"
-        app:cardBackgroundColor="@color/windowBackgroundSecondary">
+        app:cardBackgroundColor="@color/windowBackground">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:paddingTop="5sp"
+                android:paddingBottom="5sp">
+
                 <ImageButton
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="16sp"
+                    android:layout_height="16sp"
+                    android:src="@drawable/people"
+                    android:layout_gravity="center_vertical"
                     android:id="@+id/photoAkun" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textColor="#333333"
-                    android:layout_marginLeft="5dp"
+                    android:textAppearance="@style/NormalText"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bagas Sucipto"
+                    android:padding="5sp"
                     android:id="@+id/person_name"/>
 
-                <TextView
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:textColor="#333333"
-                    android:id="@+id/person_age"
-                    android:gravity="right"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:padding="5dp"
-                android:weightSum="4">
+                android:padding="10sp">
 
-                <ImageButton
-                    android:id="@+id/Location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/gps1"
-                    android:background="@color/windowBackgroundSecondary"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="5sp" />
+                <ImageView
+                    android:layout_width="16sp"
+                    android:layout_height="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/gps_grey"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Jl.Thamrin"
-                    android:padding="10sp"
+                    android:textAppearance="@style/SmallText"
+                    android:textColor="@color/textColorSecondary"
+                    android:padding="5sp"
                     android:layout_weight="2"
                     android:layout_span="2"/>
+
             </LinearLayout>
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="275sp"
+                android:src="@drawable/macet"
                 android:id="@+id/person_photo"
                 android:scaleType="centerCrop" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="5dp">
-                <ImageButton
+                android:layout_gravity="center_vertical"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="16sp"
+                        android:layout_height="16sp"
+                        android:id="@+id/like"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/thumb"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/SmallText"
+                        android:textColor="@color/textColorSecondary"
+                        android:padding="5sp"
+                        android:text="6"/>
+
+                    <ImageView
+                        android:layout_width="16sp"
+                        android:layout_height="16sp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/comment"
+                        android:src="@drawable/note"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/SmallText"
+                        android:textColor="@color/textColorSecondary"
+                        android:padding="5sp"
+                        android:text="623"/>
+                </LinearLayout>
+                
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/like"
-                    android:src="@drawable/approval"
-                    android:background="@color/windowBackgroundSecondary"
-                    android:layout_marginRight="10dp"/>
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/comment"
-                    android:src="@drawable/comment"
-                    android:background="@color/windowBackgroundSecondary"/>
+                    android:layout_height="wrap_content"
+                    android:id="@id/person_age"
+                    android:textAppearance="@style/TinyText"
+                    android:textColor="@color/textColorSecondary"
+                    android:layout_gravity="center_vertical"
+                    android:text="12 minutes ago"/>
+
             </LinearLayout>
-            <View
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:background="@color/title_row">
-            </View>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="10sp">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/nama2"
-                    android:textStyle="bold"
+                    android:textAppearance="@style/NormalText"
+                    android:textColor="@color/linkColor"
+                    android:text="Budi"
                     android:layout_marginRight="5dp"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textAppearance="@style/NormalText"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="iahefhefdih"
                     android:id="@+id/judul"/>
             </LinearLayout>
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color" />
 
     </android.support.v7.widget.CardView>
 

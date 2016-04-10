@@ -5,6 +5,8 @@ package fragment;
  */
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,16 +14,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.nyumon.jempol.Timeline.ItemObject;
+import com.nyumon.jempol.Timeline.TimelineDataSet;
 import com.nyumon.jempol.R;
-import com.nyumon.jempol.Timeline.TimelineActivity;
+import com.nyumon.jempol.Timeline.TimelineAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class OneFragment extends Fragment{
-    private LinearLayoutManager llayout;
+public class OneFragment extends Fragment {
+
+    private RecyclerView                recyclerView;
+    private TimelineAdapter             adapter;
+    private ArrayList<TimelineDataSet>  DataSet;
+    private SwipeRefreshLayout          refreshLayout;
+    private LinearLayoutManager         llm;
+    private View                        rootView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,43 +41,84 @@ public class OneFragment extends Fragment{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        List<ItemObject> rowListItem = getAllItemList();
-        llayout = new LinearLayoutManager(OneFragment.this.getActivity());
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        RecyclerView rView = (RecyclerView) rootView.findViewById(R.id.rv);
-        rView.setLayoutManager(llayout);
+        rootView        = inflater.inflate(R.layout.fragment_main, container, false);
+        refreshLayout   = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_timeline);
+        recyclerView    = (RecyclerView) rootView.findViewById(R.id.timeline_result);
 
-        TimelineActivity rcAdapter = new TimelineActivity(OneFragment.this.getActivity(), rowListItem);
-        rView.setAdapter(rcAdapter);
+        DataSet       = new ArrayList<TimelineDataSet>();
+        llm           = new LinearLayoutManager(getActivity());
+
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        recyclerView.setLayoutManager(llm);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        adapter = new TimelineAdapter(this.getContext(), new TimelineAdapter.OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+
+                adapter.setProgressMore(true);
+
+                new android.os.Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        DataSet.clear();
+                        adapter.setProgressMore(false);
+
+                        int start = adapter.getItemCount();
+                        int end = start + 5;
+
+                        for (int i = start; i < end; i++) {
+                            DataSet.add(new TimelineDataSet(R.drawable.people, "Pengguna"+i, i+"minute ago", R.drawable.macet, "Jalanan Macet"));
+                        }
+
+                        adapter.addItemMore(DataSet);
+                        adapter.setMoreLoading(false);
+                    }
+                },2000);
+            }
+        });
+
+        adapter.setLinearLayoutManager(llm);
+        adapter.setRecyclerView(recyclerView);
+        recyclerView.setAdapter(adapter);
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new android.os.Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refreshLayout.setRefreshing(false);
+                        initDataSet();
+                    }
+                }, 2000);
+            }
+        });
+
         return rootView;
+
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onStart() {
+        super.onStart();
+        initDataSet();
     }
 
-    private List<ItemObject> getAllItemList(){
+    public void initDataSet() {
 
-        List<ItemObject> allItems = new ArrayList<ItemObject>();
-        allItems.add(new ItemObject(R.drawable.people, "Fajar Satria Akbar", "12 minute ago", R.drawable.macet, "Jalanan Macet"));
-        allItems.add(new ItemObject(R.drawable.people, "Ricky Ramadhan", "12 minute ago", R.drawable.macet, "Jalan disini macet"));
-        allItems.add(new ItemObject(R.drawable.people, "Rizky Hasibuan", "12 minute ago", R.drawable.macet, "Jgn lewat sini"));
-        allItems.add(new ItemObject(R.drawable.people, "Ridho Gusti", "12 minute ago", R.drawable.macet, "wiih macet kali cuy"));
-        allItems.add(new ItemObject(R.drawable.people, "Preman", "12 minute ago", R.drawable.macet, "bener kata atas gw"));
-        return allItems;
+        DataSet.clear();
+
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Fajar Satria Akbar", "12 minute ago", R.drawable.macet, "Jalanan Macet"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Ricky Ramadhan", "12 minute ago", R.drawable.macet, "Jalan disini macet"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Rizky Hasibuan", "12 minute ago", R.drawable.macet, "Jgn lewat sini"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Ridho Gusti", "12 minute ago", R.drawable.macet, "wiih macet kali cuy"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Preman", "12 minute ago", R.drawable.macet, "bener kata atas gw"));
+
+        adapter.addAll(DataSet);
     }
 
 
