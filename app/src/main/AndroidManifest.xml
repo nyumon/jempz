@@ -3,6 +3,7 @@
     package="com.nyumon.jempol">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -58,6 +59,14 @@
         <activity
             android:name=".MyPost"
             android:label="@string/title_activity_my_post"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".Comment"
+            android:label="@string/title_activity_comment"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".isicomment"
+            android:label="@string/title_activity_isicomment"
             android:theme="@style/MyMaterialTheme"></activity>
     </application>
 

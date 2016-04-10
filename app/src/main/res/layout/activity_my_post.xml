@@ -122,10 +122,11 @@
                             android:orientation="horizontal"
                             android:layout_weight="1">
 
-                            <ImageView
+                            <ImageButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="5sp"
+                                android:background="@color/colorSecondary"
                                 android:id="@+id/jempol"
                                 android:src="@drawable/symbol"/>
                             <TextView
@@ -146,11 +147,13 @@
                         android:orientation="horizontal"
                         android:layout_weight="1">
 
-                        <ImageView
+                        <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5sp"
-                            android:src="@drawable/comment"/>
+                            android:background="@color/colorSecondary"
+                            android:src="@drawable/comment"
+                            android:onClick="kekomentar"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
