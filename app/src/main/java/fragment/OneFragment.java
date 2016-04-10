@@ -92,11 +92,11 @@ public class OneFragment extends Fragment{
     private List<ItemObject> getAllItemList(){
 
         List<ItemObject> allItems = new ArrayList<ItemObject>();
-        allItems.add(new ItemObject("Fajar Satria Akbar", "12 minute ago", R.drawable.macet, "Jalanan Macet"));
-        allItems.add(new ItemObject("Ricky Ramadhan", "12 minute ago", R.drawable.macet, "Jalan disini macet"));
-        allItems.add(new ItemObject("Rizky Hasibuan", "12 minute ago", R.drawable.macet, "Jgn lewat sini"));
-        allItems.add(new ItemObject("Ridho Gusti", "12 minute ago", R.drawable.macet, "wiih macet kali cuy"));
-        allItems.add(new ItemObject("Preman", "12 minute ago", R.drawable.macet, "bener kata atas gw"));
+        allItems.add(new ItemObject(R.drawable.people, "Fajar Satria Akbar", "12 minute ago", R.drawable.macet, "Jalanan Macet"));
+        allItems.add(new ItemObject(R.drawable.people, "Ricky Ramadhan", "12 minute ago", R.drawable.macet, "Jalan disini macet"));
+        allItems.add(new ItemObject(R.drawable.people, "Rizky Hasibuan", "12 minute ago", R.drawable.macet, "Jgn lewat sini"));
+        allItems.add(new ItemObject(R.drawable.people, "Ridho Gusti", "12 minute ago", R.drawable.macet, "wiih macet kali cuy"));
+        allItems.add(new ItemObject(R.drawable.people, "Preman", "12 minute ago", R.drawable.macet, "bener kata atas gw"));
         return allItems;
     }
 
