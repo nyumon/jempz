@@ -14,34 +14,20 @@ import com.nyumon.jempol.R;
 /**
  * Created by ricky on 03/04/16.
  */
-public class ImageAdapter extends BaseAdapter {
+public class AddPhotoAdapter extends BaseAdapter {
     private Context mContext;
 
     // Keep all Images in array
     public Integer[] mThumbIds = {
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol
+            R.drawable.addpicture,
+            R.drawable.addpicture,
+            R.drawable.addpicture,
+            R.drawable.addpicture
+
     };
 
-    public Integer[]addThumb=
-            {
-              R.drawable.addpicture,
-              R.drawable.addpicture,
-              R.drawable.addpicture,
-              R.drawable.addpicture
-
-            };
     // Constructor
-    public ImageAdapter(Context c){
+    public AddPhotoAdapter(Context c){
         mContext = c;
     }
 
