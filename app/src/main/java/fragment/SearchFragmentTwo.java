@@ -78,7 +78,7 @@ public class SearchFragmentTwo extends Fragment {
                 }, 2000);
 
             }
-        });
+        }, this.getContext());
 
         adapter.setLinearLayoutManager(llm);
         adapter.setRecyclerView(recyclerView);

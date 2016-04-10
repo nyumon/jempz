@@ -94,7 +94,7 @@ public class SearchPlaceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         if(itemHolder instanceof ItemHolder) {
 
             ((ItemHolder) itemHolder).PlaceName.setText(DataSet.get(position).getPlacename());
-            ((ItemHolder) itemHolder).TotalPosts.setText(String.valueOf(DataSet.get(position).getTotalposts()));
+            ((ItemHolder) itemHolder).TotalPosts.setText(String.valueOf(DataSet.get(position).getTotalposts()) + "Posts");
         }
     }
 

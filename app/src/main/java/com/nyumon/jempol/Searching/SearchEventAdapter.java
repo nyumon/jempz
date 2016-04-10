@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Handler;
@@ -20,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nyumon.jempol.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -29,6 +32,7 @@ import java.util.ArrayList;
 public class SearchEventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private ArrayList<SearchEventDataSet> DataSet;
+    private Context context;
 
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
@@ -44,9 +48,10 @@ public class SearchEventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         void onLoadMore();
     }
 
-    public SearchEventAdapter(OnLoadMoreListener onLoadMoreListener) {
+    public SearchEventAdapter(OnLoadMoreListener onLoadMoreListener, Context context) {
         this.onLoadMoreListener = onLoadMoreListener;
-        DataSet = new ArrayList<SearchEventDataSet>();
+        DataSet         = new ArrayList<SearchEventDataSet>();
+        this.context    = context;
     }
 
     public void setLinearLayoutManager(LinearLayoutManager linearLayoutManager) {
@@ -105,7 +110,11 @@ public class SearchEventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ((ItemHolder) itemHolder).ItemUsername.setText(DataSet.get(position).getUsername());
             ((ItemHolder) itemHolder).ItemJempol.setText(String.valueOf(DataSet.get(position).getJempol_total()));
 
-            ImageCompress("android.resource://com.nyumon.jempol" + R.drawable.cth, (ItemHolder) itemHolder);
+            //Bitmap gambar = resizeBitMapImage(String.valueOf(R.drawable.cth), 270, 160);
+
+            //((ItemHolder) itemHolder).ItemImage.setImageBitmap(gambar);
+
+            Picasso.with(context).load(R.drawable.cth).resize(270, 160).into(((ItemHolder) itemHolder).ItemImage);
 
         }
     }
@@ -130,6 +139,51 @@ public class SearchEventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             notifyItemRemoved(DataSet.size());
         }
     }
+
+    public static Bitmap resizeBitMapImage(String filePath, int targetWidth, int targetHeight) {
+
+        Bitmap bitMapImage = null;
+        // First, get the dimensions of the image
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(filePath, options);
+        double sampleSize = 0;
+        // Only scale if we need to
+        // (16384 buffer for img processing)
+        Boolean scaleByHeight = Math.abs(options.outHeight - targetHeight) >= Math
+                .abs(options.outWidth - targetWidth);
+
+        if (options.outHeight * options.outWidth * 2 >= 1638) {
+            // Load, scaling to smallest power of 2 that'll get it <= desired
+            // dimensions
+            sampleSize = scaleByHeight ? options.outHeight / targetHeight
+                    : options.outWidth / targetWidth;
+            sampleSize = (int) Math.pow(2d,
+                    Math.floor(Math.log(sampleSize) / Math.log(2d)));
+        }
+
+        // Do the actual decoding
+        options.inJustDecodeBounds = false;
+        options.inTempStorage = new byte[128];
+        while (true) {
+            try {
+                options.inSampleSize = (int) sampleSize;
+                bitMapImage = BitmapFactory.decodeFile(filePath, options);
+
+                break;
+            } catch (Exception ex) {
+                try {
+                    sampleSize = sampleSize * 2;
+                } catch (Exception ex1) {
+
+                }
+            }
+        }
+
+        return bitMapImage;
+    }
+
+
 
     static class ItemHolder extends RecyclerView.ViewHolder {
 

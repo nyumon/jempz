@@ -22,18 +22,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="20sp"
+            android:paddingTop="10sp"
             android:paddingBottom="10sp">
+
+            <ImageView
+                android:layout_width="16sp"
+                android:layout_height="16sp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/gps_grey"/>
 
             <TextView
                 android:id="@+id/search_event_place"
-                android:paddingTop="10sp"
-                android:paddingBottom="10sp"
-                android:textAppearance="@style/TinyText"
-                android:textColor="@color/textColorSecondary"
+                android:padding="5sp"
+                android:textAppearance="@style/SmallText"
+                android:textColor="@color/linkColor"
                 android:text="STMIK Mikroskil Medan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TinyText"
+                android:textColor="@color/textColorSecondary"
+                android:text="23 Hours Ago"/>
 
         </LinearLayout>
 
