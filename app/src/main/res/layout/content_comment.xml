@@ -1,55 +1,38 @@
-<RelativeLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <ListView
+        android:id="@+id/msgview"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:divider="@null"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"></ListView>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_alignParentBottom="true"
-            android:gravity="bottom">
+        <EditText
+            android:id="@+id/msg"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/send"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Send" />
 
-                <include layout="@layout/activity_isicomment"></include>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/colorSecondary">
-
-                <EditText
-                    android:id="@+id/inputSearchEditText"
-                    android:layout_centerVertical="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="start"
-                    android:paddingLeft="10sp"
-                    android:lines="3"
-                    android:layout_weight="1"
-                    android:hint="Add a comment..."
-                    android:background="@drawable/edittextstyle"/>
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/letter"
-                    android:padding="16sp"
-                    android:layout_marginRight="5sp"
-                    android:background="@color/icon_color"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
