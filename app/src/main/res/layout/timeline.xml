@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cv"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        app:cardBackgroundColor="@color/windowBackgroundSecondary">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,42 +23,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+                <ImageButton
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/photoAkun" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:textColor="#333333"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/person_name"/>
 
                 <TextView
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:textColor="#333333"
-                    android:id="@+id/person_age"/>
+                    android:id="@+id/person_age"
+                    android:gravity="right"/>
             </LinearLayout>
-
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/person_photo"
-                android:scaleType="centerCrop" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#333333"
-                android:id="@+id/judul"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"/>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:layout_marginTop="8dp"
-                android:padding="10sp"
+                android:layout_marginTop="3dp"
+                android:padding="5dp"
                 android:weightSum="4">
 
                 <ImageButton
@@ -65,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/gps1"
-                    android:background="#fff"
+                    android:background="@color/windowBackgroundSecondary"
                     android:paddingTop="5sp"
                     android:paddingBottom="5sp" />
 
@@ -76,7 +66,54 @@
                     android:padding="10sp"
                     android:layout_weight="2"
                     android:layout_span="2"/>
-            </TableRow>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_photo"
+                android:scaleType="centerCrop" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/like"
+                    android:src="@drawable/approval"
+                    android:background="@color/windowBackgroundSecondary"
+                    android:layout_marginRight="10dp"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/comment"
+                    android:src="@drawable/comment"
+                    android:background="@color/windowBackgroundSecondary"/>
+            </LinearLayout>
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/title_row">
+            </View>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/nama2"
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/judul"/>
+            </LinearLayout>
 
         </LinearLayout>
 

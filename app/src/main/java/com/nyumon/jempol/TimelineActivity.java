@@ -29,10 +29,12 @@ public class TimelineActivity extends RecyclerView.Adapter<RecyclerViewHolder>{
     }
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+        holder.photoAkun.setImageResource(itemList.get(position).getPhotoAkun());
         holder.countryName.setText(itemList.get(position).getName());
         holder.countryTime.setText(itemList.get(position).getTime());
         holder.countryPhoto.setImageResource(itemList.get(position).getPhoto());
         holder.countryJudul.setText(itemList.get(position).getJudul());
+        holder.nama2.setText(itemList.get(position).getName());
     }
 
     @Override

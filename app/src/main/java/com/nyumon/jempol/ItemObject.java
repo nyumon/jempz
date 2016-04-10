@@ -10,13 +10,18 @@ public class ItemObject {
     private String time;
     private String judul;
     private int photo;
+    private int photoAkun;
 
-    public ItemObject(String name, String time, int photo, String judul) {
+    public ItemObject(int photoAkun, String name, String time, int photo, String judul) {
+        this.photoAkun = photoAkun;
         this.name = name;
         this.time = time;
         this.photo = photo;
         this.judul = judul;
     }
+    public int getPhotoAkun() { return photoAkun; }
+
+    public void setPhotoAkun(int photoAkun) {this.photoAkun = photoAkun; }
 
     public String getName() {
         return name;
