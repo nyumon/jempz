@@ -46,16 +46,16 @@ public class FourAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
         mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                visibleItemCount = recyclerView.getChildCount();
-                totalItemCount = mLinearLayoutManager.getItemCount();
-                firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
-                if (!isMoreLoading && (totalItemCount - visibleItemCount)<= (firstVisibleItem + visibleThreshold)) {
-                    if (onLoadMoreListener != null) {
-                        onLoadMoreListener.onLoadMore();
-                    }
-                    isMoreLoading = true;
+            super.onScrolled(recyclerView, dx, dy);
+            visibleItemCount = recyclerView.getChildCount();
+            totalItemCount = mLinearLayoutManager.getItemCount();
+            firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
+            if (!isMoreLoading && (totalItemCount - visibleItemCount)<= (firstVisibleItem + visibleThreshold)) {
+                if (onLoadMoreListener != null) {
+                    onLoadMoreListener.onLoadMore();
                 }
+                isMoreLoading = true;
+            }
             }
         });
     }
@@ -93,6 +93,7 @@ public class FourAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
             ((StudentViewHolder) holder).tvItem.setText(singleItem.getText());
         }
     }
+
     public void setMoreLoading(boolean isMoreLoading) {
         this.isMoreLoading=isMoreLoading;
     }

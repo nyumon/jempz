@@ -8,12 +8,19 @@
     android:paddingBottom="10sp"
     android:background="@color/windowBackground">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/search_result_event"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_search_event"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:background="@color/windowBackground"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_result_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:background="@color/windowBackgroundSecondary"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

@@ -93,9 +93,13 @@ public class FourFragment extends Fragment{
 
         itemList = new LinkedList<>();
         swipeRefresh = (SwipeRefreshLayout)rootView.findViewById(R.id.swipeRefresh);
+
         RecyclerView mRecyclerView = (RecyclerView) rootView.findViewById(R.id.rvList);
+
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+
         mRecyclerView.setLayoutManager(mLayoutManager);
+
         mAdapter = new FourAdapter(new FourAdapter.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
@@ -117,9 +121,11 @@ public class FourFragment extends Fragment{
                 },2000);
             }
         });
+
         mAdapter.setLinearLayoutManager(mLayoutManager);
         mAdapter.setRecyclerView(mRecyclerView);
         mRecyclerView.setAdapter(mAdapter);
+
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

@@ -2,56 +2,137 @@ package com.nyumon.jempol.Searching;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
+import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nyumon.jempol.R;
-
 import java.util.ArrayList;
 
 /**
  * Created by riskteria on 03/04/16.
  */
-public class SearchPeopleAdapter extends RecyclerView.Adapter<SearchPeopleAdapter.ItemHolder> {
+public class SearchPeopleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<SearchPeopleDataSet> DataSet;
-    private LayoutInflater inflater;
 
-    public SearchPeopleAdapter(Context context, ArrayList<SearchPeopleDataSet> DataSet) {
-        inflater = LayoutInflater.from(context);
-        this.DataSet = DataSet;
+    private final int VIEW_ITEM = 1;
+    private final int VIEW_PROG = 0;
+
+    private boolean isMoreLoading = false;
+    private int visibleThreshold = 1;
+    int firstVisibleItem, visibleItemCount, totalItemCount;
+
+    private OnLoadMoreListener onLoadMoreListener;
+    private LinearLayoutManager linearLayoutManager;
+
+    public interface OnLoadMoreListener{
+        void onLoadMore();
     }
 
-    public SearchPeopleAdapter.ItemHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.show_search_people_data, viewGroup, false);
-        return new ItemHolder(itemView);
+    public SearchPeopleAdapter(OnLoadMoreListener onLoadMoreListener) {
+        this.onLoadMoreListener = onLoadMoreListener;
+        this.DataSet = new ArrayList<SearchPeopleDataSet>();
     }
 
-    public void onBindViewHolder(ItemHolder itemHolder, int position) {
-        itemHolder.ItemUsername.setText(DataSet.get(position).getUsername());
-        itemHolder.ItemDisplayName.setText(DataSet.get(position).getDisplayname());
-        itemHolder.ItemTotalPost.setText((String.valueOf(DataSet.get(position).getPosts()) + " Posts"));
-        itemHolder.ItemTotalSubscriber.setText((String.valueOf(DataSet.get(position).getSubscribers()) + " Berlangganan"));
+    public void setLinearLayoutManager(LinearLayoutManager linearLayoutManager) {
+        this.linearLayoutManager = linearLayoutManager;
+    }
 
-        Boolean is_subcribe = DataSet.get(position).getSubscribe();
-        if(is_subcribe) {
-            itemHolder.ItemButtonSubscribe.setText("Langganan");
-            itemHolder.ItemButtonSubscribe.setBackgroundResource(R.drawable.button_subscribe_1);
-            itemHolder.ItemButtonSubscribe.setTextColor(Color.parseColor("#FFFFFF"));
+    public void setRecyclerView(RecyclerView mView) {
+        mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                visibleItemCount = recyclerView.getChildCount();
+                totalItemCount = linearLayoutManager.getItemCount();
+                firstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
+                if (!isMoreLoading && (totalItemCount - visibleItemCount)<= (firstVisibleItem + visibleThreshold)) {
+                    if (onLoadMoreListener != null) {
+                        onLoadMoreListener.onLoadMore();
+                    }
+                    isMoreLoading = true;
+                }
+            }
+        });
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return DataSet.get(position) != null ? VIEW_ITEM : VIEW_PROG;
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        if(viewType == VIEW_ITEM)
+            return new ItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.show_search_people_data, viewGroup, false));
+        else
+            return new ProgressViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.loadmore_view, viewGroup, false));
+    }
+
+    public void addAll(ArrayList<SearchPeopleDataSet> lst){
+        DataSet.clear();
+        DataSet.addAll(lst);
+        notifyDataSetChanged();
+    }
+
+    public void addItemMore(ArrayList<SearchPeopleDataSet> lst){
+        DataSet.addAll(lst);
+        notifyItemRangeChanged(0, DataSet.size());
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder itemHolder, int position) {
+
+        if(itemHolder instanceof ItemHolder) {
+
+            ((ItemHolder) itemHolder).ItemUsername.setText(DataSet.get(position).getUsername());
+            ((ItemHolder) itemHolder).ItemDisplayName.setText(DataSet.get(position).getDisplayname());
+            ((ItemHolder) itemHolder).ItemTotalPost.setText((String.valueOf(DataSet.get(position).getPosts()) + " Posts"));
+            ((ItemHolder) itemHolder).ItemTotalSubscriber.setText((String.valueOf(DataSet.get(position).getSubscribers()) + " Berlangganan"));
+
+            Boolean is_subcribe = DataSet.get(position).getSubscribe();
+            if (is_subcribe) {
+                ((ItemHolder) itemHolder).ItemButtonSubscribe.setText("Langganan");
+                ((ItemHolder) itemHolder).ItemButtonSubscribe.setBackgroundResource(R.drawable.button_subscribe_1);
+                ((ItemHolder) itemHolder).ItemButtonSubscribe.setTextColor(Color.parseColor("#FFFFFF"));
+            } else {
+                ((ItemHolder) itemHolder).ItemButtonSubscribe.setText("Berlangganan");
+                ((ItemHolder) itemHolder).ItemButtonSubscribe.setBackgroundResource(R.drawable.button_subscribe_0);
+                ((ItemHolder) itemHolder).ItemButtonSubscribe.setTextColor(Color.parseColor("#00bcd4"));
+            }
+
         }
-        else {
-            itemHolder.ItemButtonSubscribe.setText("Berlangganan");
-            itemHolder.ItemButtonSubscribe.setBackgroundResource(R.drawable.button_subscribe_0);
-            itemHolder.ItemButtonSubscribe.setTextColor(Color.parseColor("#00bcd4"));
+    }
+
+    public void setMoreLoading(boolean isMoreLoading) {
+        this.isMoreLoading=isMoreLoading;
+    }
+
+    public int getItemCount() { return DataSet.size(); }
+
+    public void setProgressMore(final boolean isProgress) {
+        if (isProgress) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    DataSet.add(null);
+                    notifyItemInserted(DataSet.size() - 1);
+                }
+            });
+        } else {
+            DataSet.remove(DataSet.size() - 1);
+            notifyItemRemoved(DataSet.size());
         }
     }
 
-    public static class ItemHolder extends RecyclerView.ViewHolder {
+    static class ItemHolder extends RecyclerView.ViewHolder {
 
         public TextView ItemUsername;
         public TextView ItemDisplayName;
@@ -68,10 +149,15 @@ public class SearchPeopleAdapter extends RecyclerView.Adapter<SearchPeopleAdapte
             ItemButtonSubscribe    = (Button)   v.findViewById(R.id.search_item_subscribe_button);
 
         }
-
     }
 
-    public int getItemCount() { return DataSet.size(); }
+    static class ProgressViewHolder extends RecyclerView.ViewHolder {
+        public ProgressBar pBar;
+        public ProgressViewHolder(View v) {
+            super(v);
+            pBar = (ProgressBar) v.findViewById(R.id.pBar);
+        }
+    }
 
 
 
