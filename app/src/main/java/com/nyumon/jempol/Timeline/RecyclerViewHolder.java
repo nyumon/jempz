@@ -1,4 +1,4 @@
-package com.nyumon.jempol;
+package com.nyumon.jempol.Timeline;
 
 /**
  * Created by fajar on 04/04/16.
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.nyumon.jempol.R;
 
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

@@ -1,4 +1,4 @@
-package com.nyumon.jempol;
+package com.nyumon.jempol.Timeline;
 
 
 import android.content.Context;
@@ -6,6 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.nyumon.jempol.R;
+import com.nyumon.jempol.Timeline.ItemObject;
+import com.nyumon.jempol.Timeline.RecyclerViewHolder;
 
 import java.util.List;
 

@@ -3,49 +3,21 @@ package fragment;
 /**
  * Created by com.nyumon on 23/03/16.
  */
-import android.content.ClipData;
-import android.content.Intent;
-import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.nyumon.jempol.CustomAdapter;
-import com.nyumon.jempol.ItemObject;
-import com.nyumon.jempol.MainActivity;
-import com.nyumon.jempol.NewPostActivity;
+import com.nyumon.jempol.Timeline.ItemObject;
 import com.nyumon.jempol.R;
-import com.nyumon.jempol.RecyclerViewHolder;
-import com.nyumon.jempol.TimelineActivity;
+import com.nyumon.jempol.Timeline.TimelineActivity;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
-
-import static com.nyumon.jempol.RecyclerViewHolder.*;
 
 
 public class OneFragment extends Fragment{
