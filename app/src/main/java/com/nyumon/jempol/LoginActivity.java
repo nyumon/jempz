@@ -39,7 +39,7 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
 
         btn1 = (Button) findViewById(R.id.button);
-        edt1 = (EditText) findViewById(R.id.editText);
+        edt1 = (EditText) findViewById(R.id.login_username);
         edt2 = (EditText) findViewById(R.id.editText2);
 
         btn2 = (Button) findViewById(R.id.button2);
