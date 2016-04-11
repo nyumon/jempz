@@ -14,25 +14,25 @@ import android.widget.Toast;
  */
 
 public class RegisterActivity extends Activity {
-    Button btn1, btn2;
+    Button btnLogin, btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        btn1 = (Button) findViewById(R.id.button);
-        btn2 = (Button) findViewById(R.id.button2);
+        btnLogin    = (Button) findViewById(R.id.btnLogin);
+        btnRegister = (Button) findViewById(R.id.btnLogin);
 
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
