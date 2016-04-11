@@ -13,12 +13,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
 
     private TextView chatText;
+    private TextView waktu;
     private ImageView tet;
     private List<ChatMessage> chatMessageList = new ArrayList<ChatMessage>();
     private Context context;
@@ -52,8 +55,11 @@ class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
             row = inflater.inflate(R.layout.left, parent, false);
         }
         chatText = (TextView) row.findViewById(R.id.msgr);
+        waktu = (TextView) row.findViewById(R.id.waktu);
         tet = (ImageView) row.findViewById(R.id.msgrq);
         chatText.setText(chatMessageObj.message);
+        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        waktu.setText(date);
         return row;
     }
 }

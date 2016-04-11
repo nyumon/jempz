@@ -15,8 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.nyumon.jempol.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Comment extends AppCompatActivity {
 
@@ -28,6 +32,7 @@ public class Comment extends AppCompatActivity {
     private Button buttonSend;
     private ImageView tet;
     private boolean side = false;
+    private TextView waktu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +60,6 @@ public class Comment extends AppCompatActivity {
         listView.setAdapter(chatArrayAdapter);
 
         chatText = (EditText) findViewById(R.id.msg);
-        tet = (ImageView) findViewById(R.id.search_event_image);
         chatText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
@@ -86,7 +90,9 @@ public class Comment extends AppCompatActivity {
 
     private boolean sendChatMessage() {
         chatArrayAdapter.add(new ChatMessage(side, chatText.getText().toString(),tet));
-        chatText.setText("");
+        chatText.setText("");/*
+        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());*/
+
         side = !side;
         return true;
     }
