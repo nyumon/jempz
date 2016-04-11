@@ -112,7 +112,7 @@ public class SearchPeopleAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public void setMoreLoading(boolean isMoreLoading) {
-        this.isMoreLoading=isMoreLoading;
+        this.isMoreLoading = isMoreLoading;
     }
 
     public int getItemCount() { return DataSet.size(); }

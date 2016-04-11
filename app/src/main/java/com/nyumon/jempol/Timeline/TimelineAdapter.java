@@ -41,8 +41,9 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public TimelineAdapter(Context context, OnLoadMoreListener onLoadMoreListener) {
-        this.context = context;
-        this.DataSet = new ArrayList<TimelineDataSet>();
+        this.context            = context;
+        this.onLoadMoreListener = onLoadMoreListener;
+        this.DataSet            = new ArrayList<TimelineDataSet>();
     }
 
     public void setLinearLayoutManager(LinearLayoutManager linearLayoutManager) {
@@ -111,9 +112,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.isMoreLoading = isMoreLoading;
     }
 
-    @Override
     public int getItemCount() {
-        return this.DataSet.size();
+        return DataSet.size();
     }
 
     public void setProgressMore(final boolean isProgress) {

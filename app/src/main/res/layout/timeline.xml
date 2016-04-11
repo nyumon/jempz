@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:paddingLeft="10sp"
     android:paddingRight="10sp"
-    android:paddingTop="10sp"
-    android:paddingBottom="10sp"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp"
     android:gravity="center_horizontal"
     app:cardBackgroundColor="@color/windowBackgroundSecondary">
 
@@ -35,13 +35,13 @@
                 <ImageButton
                     android:layout_width="16sp"
                     android:layout_height="16sp"
-                    android:src="@drawable/people"
+                    android:src="@drawable/jempol"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/photoAkun" />
 
                 <TextView
                     android:textAppearance="@style/NormalText"
-                    android:textColor="@color/textColorPrimary"
+                    android:textColor="@color/linkColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bagas Sucipto"
@@ -52,7 +52,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10sp">
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:paddingTop="5sp"
+                android:paddingBottom="5sp">
 
                 <ImageView
                     android:layout_width="16sp"
@@ -94,8 +97,8 @@
                     android:layout_weight="1">
 
                     <ImageView
-                        android:layout_width="16sp"
-                        android:layout_height="16sp"
+                        android:layout_width="14sp"
+                        android:layout_height="14sp"
                         android:id="@+id/like"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/thumb"/>
@@ -109,10 +112,11 @@
                         android:text="6"/>
 
                     <ImageView
-                        android:layout_width="16sp"
-                        android:layout_height="16sp"
+                        android:layout_width="14sp"
+                        android:layout_height="14sp"
                         android:layout_gravity="center_vertical"
                         android:id="@+id/comment"
+                        android:layout_marginLeft="10sp"
                         android:src="@drawable/note"/>
 
                     <TextView
