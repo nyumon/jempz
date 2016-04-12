@@ -4,25 +4,28 @@ package fragment;
  * Created by com.nyumon on 23/03/16.
  */
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import com.nyumon.jempol.ExpandedGridView;
 import com.nyumon.jempol.ImageAdapter;
 import com.nyumon.jempol.MyPost;
 import com.nyumon.jempol.R;
+import com.nyumon.jempol.RoundedImg;
 
 
 public class TwoFragment extends Fragment {
-    private FragmentTabHost mTabHost;
-
+    ImageView fotoprofil;
+    RoundedImg roundedImg;
     public TwoFragment() {
         // Required empty public constructor
     }
@@ -38,6 +41,13 @@ public class TwoFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.twofragment,container, false);
         GridView gridView = (GridView)rootView.findViewById(R.id.grid_view);
+
+
+        fotoprofil =(ImageView) rootView.findViewById(R.id.FotoProfil);
+        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.profill);
+        roundedImg = new RoundedImg(bm);
+        fotoprofil.setImageDrawable(roundedImg);
+
 
         // Instance of ImageAdapter Class
         gridView.setAdapter(new ImageAdapter(getActivity()));
