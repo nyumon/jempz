@@ -12,6 +12,8 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -40,7 +42,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nyumon.jempol.Location.GPSTracker;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -48,16 +54,20 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
+import java.util.Locale;
 
 
 public class NewPostActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageButton asu;
     private TextView location;
     private Toolbar toolbar;
+
     private LocationManager locManager;
     private LocationListener locListener;
     private Location mobileLocation;
+    private ProgressBar pb;
+    private  ImageButton btnlokasi;
     int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     ImageView ivImage, ivImage2, ivImage3, ivImage4;
     ImageView x;
@@ -78,12 +88,19 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.arrows);
-
         location = (TextView) findViewById(R.id.Location);
-        asu      = (ImageButton)findViewById(R.id.BtnLocation);
-        asu.setOnClickListener(new View.OnClickListener() {
+        btnlokasi      = (ImageButton)findViewById(R.id.BtnLocation);
+        pb= (ProgressBar)findViewById(R.id.pBar);
+        pb.setVisibility(View.GONE);
+        btnlokasi.setOnClickListener(new View.OnClickListener() {
+
             public void onClick(View v) {
-                buttonGetLocationClick();
+                pb.setVisibility(View.VISIBLE);
+                try {
+                    buttonGetLocationClick();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -259,8 +276,11 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
         locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locListener);
     }
 
-    private void buttonGetLocationClick() {
+    private void buttonGetLocationClick() throws IOException {
         getCurrentLocation(); // gets the current location and update mobileLocation variable
+        Geocoder geocoder;
+        List<Address> addresses;
+        geocoder = new Geocoder(this, Locale.getDefault());
 
         if (mobileLocation != null) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -281,10 +301,20 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
             String accuracy = "Accuracy: " + mobileLocation.getAccuracy();
             String time = "Time: " + mobileLocation.getTime();
 
-            location.setText(londitude + "\n" + latitude + "\n"
-                    + altitiude + "\n" + accuracy + "\n" + time);
-        } else {
-            location.setText("Sorry, location is not determined");
-        }
+
+            addresses = geocoder.getFromLocation(mobileLocation.getLatitude(), mobileLocation.getLongitude(),1);
+
+                if (addresses != null && addresses.size() > 0) {
+                    String address = addresses.get(0).getAddressLine(0);
+                    String city = addresses.get(0).getLocality();
+
+                    location.setText(address + " " + city + " ");
+                    pb.setVisibility(View.GONE);
+                    addresses = geocoder.getFromLocation(mobileLocation.getLatitude(), mobileLocation.getLongitude(),1);
+                }
+
     }
+
+
  }
+}

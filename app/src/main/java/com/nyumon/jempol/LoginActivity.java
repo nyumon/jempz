@@ -28,44 +28,48 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class LoginActivity extends Activity {
-    Button btn1, btn2;
-    EditText edt1, edt2;
-    TextView tv;
+    Button      button_login, button_register;
+    EditText    login_username, login_password;
+    TextView    alert_login, forgot_password;
+
     int counter = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn1 = (Button) findViewById(R.id.button);
-        edt1 = (EditText) findViewById(R.id.login_username);
-        edt2 = (EditText) findViewById(R.id.editText2);
+        button_login    = (Button) findViewById(R.id.button_login);
+        button_register = (Button) findViewById(R.id.button_register);
 
-        btn2 = (Button) findViewById(R.id.button2);
-        tv=(TextView)findViewById(R.id.textView3);
+        login_username  = (EditText) findViewById(R.id.login_username);
+        login_password  = (EditText) findViewById(R.id.login_password);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        alert_login     = (TextView)findViewById(R.id.alert_login);
+        forgot_password = (TextView) findViewById(R.id.forgot_password);
+
+        button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edt1.getText().toString().equals("user") && edt2.getText().toString().equals("user")) {
+                if (login_username.getText().toString().equals("") && login_password.getText().toString().equals("")) {
                     //Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
-                else if(edt1.getText().toString().equals("moderator") && edt2.getText().toString().equals("moderator"))
+                else if(login_username.getText().toString().equals("moderator") && login_password.getText().toString().equals("moderator"))
                 {
                     Intent intent = new Intent(LoginActivity.this, ModeratorActivity.class);
                     startActivity(intent);
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Wrong Password", Toast.LENGTH_SHORT).show();
-                    tv.setText("Wrong Password");
+                    alert_login.setText("Wrong Password");
                 }
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
