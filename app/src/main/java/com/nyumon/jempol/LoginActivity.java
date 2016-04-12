@@ -28,9 +28,12 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class LoginActivity extends Activity {
-    Button      button_login, button_register;
-    EditText    login_username, login_password;
-    TextView    alert_login, forgot_password;
+
+    private Button   button_login, button_register;
+    private EditText login_username, login_password;
+    private TextView alert_login, forgot_password;
+
+    private String username, password;
 
     int counter = 3;
 
@@ -48,6 +51,13 @@ public class LoginActivity extends Activity {
 
         alert_login     = (TextView)findViewById(R.id.alert_login);
         forgot_password = (TextView) findViewById(R.id.forgot_password);
+
+        initLoginClick();
+
+
+    }
+
+    public void initLoginClick() {
 
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +87,6 @@ public class LoginActivity extends Activity {
             }
         });
     }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
