@@ -46,6 +46,7 @@ public class TwoFragment extends Fragment {
         fotoprofil =(ImageView) rootView.findViewById(R.id.FotoProfil);
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.profill);
         roundedImg = new RoundedImg(bm);
+        
         fotoprofil.setImageDrawable(roundedImg);
 
 
