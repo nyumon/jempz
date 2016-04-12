@@ -29,6 +29,15 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.jempol, R.drawable.jempol,
             R.drawable.jempol, R.drawable.jempol,
             R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
+            R.drawable.jempol, R.drawable.jempol,
             R.drawable.jempol
     };
 
