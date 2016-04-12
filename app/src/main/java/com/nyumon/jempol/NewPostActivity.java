@@ -27,33 +27,21 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.nyumon.jempol.Location.GPSTracker;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 import java.util.Locale;
 
@@ -295,11 +283,11 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
             }
             locManager.removeUpdates(locListener); // This needs to stop getting the location data and save the battery power.
 
-            String londitude = "Londitude: " + mobileLocation.getLongitude();
-            String latitude = "Latitude: " + mobileLocation.getLatitude();
-            String altitiude = "Altitiude: " + mobileLocation.getAltitude();
-            String accuracy = "Accuracy: " + mobileLocation.getAccuracy();
-            String time = "Time: " + mobileLocation.getTime();
+//            String londitude = "Londitude: " + mobileLocation.getLongitude();
+//            String latitude = "Latitude: " + mobileLocation.getLatitude();
+//            String altitiude = "Altitiude: " + mobileLocation.getAltitude();
+//            String accuracy = "Accuracy: " + mobileLocation.getAccuracy();
+//            String time = "Time: " + mobileLocation.getTime();
 
 
             addresses = geocoder.getFromLocation(mobileLocation.getLatitude(), mobileLocation.getLongitude(),1);
@@ -310,7 +298,6 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
 
                     location.setText(address + " " + city + " ");
                     pb.setVisibility(View.GONE);
-                    addresses = geocoder.getFromLocation(mobileLocation.getLatitude(), mobileLocation.getLongitude(),1);
                 }
 
     }
