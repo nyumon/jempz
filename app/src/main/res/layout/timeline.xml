@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="10sp"
     android:paddingRight="10sp"
-    android:gravity="center_horizontal"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp"
     app:cardBackgroundColor="@color/windowBackgroundSecondary">
 
     <LinearLayout
@@ -14,7 +15,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/cv"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
         android:background="@color/windowBackground">
 
         <LinearLayout
