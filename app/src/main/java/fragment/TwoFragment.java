@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.nyumon.jempol.ExpandedGridView;
 import com.nyumon.jempol.ImageAdapter;
 import com.nyumon.jempol.MyPost;
 import com.nyumon.jempol.R;
@@ -40,7 +42,20 @@ public class TwoFragment extends Fragment {
         // Instance of ImageAdapter Class
         gridView.setAdapter(new ImageAdapter(getActivity()));
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_MOVE){
+                    return false;
+                }
+                return false;
+            }
+        });
+        ExpandedGridView gridView1 = (ExpandedGridView) rootView.findViewById(R.id.grid_view);
+        gridView1.setAdapter(new ImageAdapter(getActivity()));
+        gridView1.setExpanded(true);
+        gridView1.setVerticalScrollBarEnabled(false);
+        gridView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {

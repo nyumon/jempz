@@ -2,6 +2,9 @@ package com.nyumon.jempol;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +22,6 @@ public class ImageAdapter extends BaseAdapter {
 
     // Keep all Images in array
     public Integer[] mThumbIds = {
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
             R.drawable.jempol, R.drawable.jempol,
             R.drawable.jempol, R.drawable.jempol,
             R.drawable.jempol, R.drawable.jempol,
@@ -74,7 +66,8 @@ public class ImageAdapter extends BaseAdapter {
         ImageView imageView = new ImageView(mContext);
         imageView.setImageResource(mThumbIds[position]);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setLayoutParams(new GridView.LayoutParams(70, 70));
+
+        imageView.setLayoutParams(new GridView.LayoutParams(100, 100));
         return imageView;
     }
 

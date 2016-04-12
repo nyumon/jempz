@@ -5,7 +5,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/windowBackgroundSecondary">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="312312sp"
+        android:text="asdsdsad"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_search_people"
         android:layout_width="match_parent"
