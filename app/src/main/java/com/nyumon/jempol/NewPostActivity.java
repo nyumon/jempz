@@ -36,6 +36,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+<<<<<<< HEAD
+=======
+import android.widget.Toast;
+>>>>>>> 51a85451c208a8ae4623e2e13e0275cbef5d68a7
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
