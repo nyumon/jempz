@@ -19,18 +19,18 @@
 		# Connectiong to database
 		function connect()
 		{
-			require_once __DIR__ . "config.php";
+			require_once "config.php";
 
 			# Connecting to MySQL database
-			$this->connection = mysql_connect(DB_HOST, DB_USER DB_PASSWORD);
-			$this->db_select  = mysql_select_db(DB_NAME);
+			$this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD);
+			$this->db_select  = mysqli_select_db($this->connection, DB_NAME);
 
 			return $this->connection;
 		}
 
 		function close() {
 			# Closing DB Connection
-			mysql_close();
+			mysqli_close($this->connection);
 		}
 	}
 
