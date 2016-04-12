@@ -5,8 +5,20 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d3f14a4a350cff65bd1a81ec04d36e8eb0a54d15
         <option name="gradleJvm" value="1.8" />
+=======
+>>>>>>> 51a85451c208a8ae4623e2e13e0275cbef5d68a7
         <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+          </set>
+        </option>
+        <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
