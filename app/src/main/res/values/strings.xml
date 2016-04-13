@@ -18,5 +18,6 @@
     <string name="title_activity_edit_kata_sandi">EditKataSandi</string>
     <string name="title_activity_berlangganan">Berlangganan</string>
     <string name="title_activity_langganan">langganan</string>
+    <string name="title_activity_lokasi_sama">LokasiSama</string>
 
 </resources>

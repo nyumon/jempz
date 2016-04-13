@@ -1,4 +1,4 @@
-package com.nyumon.jempol.Langganan;
+package com.nyumon.jempol.LokasiSama;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +7,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,23 +15,22 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.nyumon.jempol.R;
-import com.nyumon.jempol.Searching.SearchPeopleDataSet;
 
 import java.util.ArrayList;
 
-public class langganan extends AppCompatActivity {
+public class LokasiSama extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Langgananadapter adapter;
-    private ArrayList<LanggananDataset> DataSet;
+    private LokasisamaAdapter adapter;
+    private ArrayList<LokasisamaDataset> DataSet;
     private SwipeRefreshLayout refreshLayout;
-    private LinearLayoutManager llm;
+    private GridLayoutManager llm;
     private View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_langganan);
+        setContentView(R.layout.activity_lokasi_sama);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -42,18 +42,18 @@ public class langganan extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.arrows);
 
-        refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh_langganan_people);
-        recyclerView  = (RecyclerView) findViewById(R.id.langganan_result_people);
+        refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh_lokasisama);
+        recyclerView  = (RecyclerView) findViewById(R.id.lokasama_Result);
 
         DataSet       = new ArrayList<>();
-        llm           = new LinearLayoutManager(recyclerView.getContext());
+        llm           = new GridLayoutManager(recyclerView.getContext(),3);
 
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        llm.setOrientation(GridLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(llm);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        adapter = new Langgananadapter(new Langgananadapter.OnLoadMoreListener() {
+        adapter = new LokasisamaAdapter(new LokasisamaAdapter.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
 
@@ -69,7 +69,7 @@ public class langganan extends AppCompatActivity {
                         int end = start + 5;
 
                         for (int i = start; i < end; i++) {
-                            DataSet.add(new LanggananDataset("Username " + i, "Display Name " + i, 1000+(24*i), 1000+(24*i), (i%2)==0?true:false));
+                            DataSet.add(new LokasisamaDataset(1));
                         }
 
                         adapter.addItemMore(DataSet);
@@ -77,7 +77,7 @@ public class langganan extends AppCompatActivity {
                     }
                 },2000);
             }
-        });
+        }, LokasiSama.this );
 
         adapter.setLinearLayoutManager(llm);
         adapter.setRecyclerView(recyclerView);
@@ -108,7 +108,7 @@ public class langganan extends AppCompatActivity {
 
         DataSet.clear();
         for(int i=0; i<=10; i++) {
-            DataSet.add(new LanggananDataset("Username " + i, "Display Name " + i, 1000+(24*i), 1000+(24*i),(i%2)==0?true:false));
+            DataSet.add(new LokasisamaDataset(1));
         }
         adapter.addAll(DataSet);
     }

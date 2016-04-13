@@ -97,12 +97,10 @@
                 android:text="Lupa Password?"
                 android:gravity="center"
                 android:textAppearance="@style/SmallText"
-<<<<<<< HEAD
                 android:textColor="@color/linkColor"
                 android:onClick="masuk"/>
-=======
-                android:onClick="ForgotPassword"
-                android:textColor="@color/linkColor"/>
+                <!--android:onClick="ForgotPassword"-->
+                <!--android:textColor="@color/linkColor"/>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -113,7 +111,7 @@
                 android:onClick="skip"
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"/>
->>>>>>> 8fe113a9bba1401df5a1b4bb62c3a566ac74980d
+
 
         </LinearLayout>
 

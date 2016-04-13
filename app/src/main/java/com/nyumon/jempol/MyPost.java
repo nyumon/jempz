@@ -37,13 +37,6 @@ public class MyPost extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.arrows);
         Intent i = getIntent();
 
-        // Selected image id
-        int position = i.getExtras().getInt("id");
-        ImageAdapter imageAdapter = new ImageAdapter(this);
-
-        ImageView imageView = (ImageView) findViewById(R.id.postsaya);
-        imageView.setImageResource(imageAdapter.mThumbIds[position]);
-
 
 
 

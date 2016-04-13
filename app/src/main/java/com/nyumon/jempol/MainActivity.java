@@ -22,7 +22,9 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 
 import com.nyumon.jempol.Berlangganan.Berlangganan;
+
 import com.nyumon.jempol.Langganan.langganan;
+import com.nyumon.jempol.LokasiSama.LokasiSama;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void kelokasisama(View view){
+        Intent intent = new Intent(this, LokasiSama.class);
+        startActivity(intent);
+    }
+
     public void setPrivasi(View view){
         Intent intent = new Intent(this, akun.class);
         startActivity(intent);
@@ -110,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public void kemypost(View view){
+        Intent intent = new Intent(this, MyPost.class);
+        startActivity(intent);
+    }
 
     public void keberlangganan(View view){
         Intent intent = new Intent(this, Berlangganan.class);

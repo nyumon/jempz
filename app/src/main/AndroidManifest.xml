@@ -80,6 +80,10 @@
         <activity
             android:name=".Langganan.langganan"
             android:label="@string/title_activity_langganan"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".LokasiSama.LokasiSama"
+            android:label="@string/title_activity_lokasi_sama"
             android:theme="@style/MyMaterialTheme"></activity>
     </application>
 
