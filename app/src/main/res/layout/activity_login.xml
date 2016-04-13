@@ -86,7 +86,7 @@
                 android:textAppearance="@style/NormalText"
                 android:background="@drawable/button_subscribe_1"
                 android:textColor="@color/colorSecondary"
-                android:onClick="invokeLogin"
+                android:onClick="invokeRegister"
                 android:layout_marginTop="5sp"/>
 
             <TextView
