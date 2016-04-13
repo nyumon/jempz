@@ -75,7 +75,7 @@
                 android:id="@+id/button_login"
                 android:background="@drawable/button_subscribe_1"
                 android:textColor="@color/colorSecondary"
-                android:onClick="setLogin" />
+                android:onClick="invokeLogin" />
 
             <Button
                 android:id="@+id/button_register"
@@ -86,6 +86,7 @@
                 android:textAppearance="@style/NormalText"
                 android:background="@drawable/button_subscribe_1"
                 android:textColor="@color/colorSecondary"
+                android:onClick="invokeLogin"
                 android:layout_marginTop="5sp"/>
 
             <TextView

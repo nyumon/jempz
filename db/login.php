@@ -4,23 +4,19 @@
 
 	$db = new DB_connect();
 
-	if(isset($_POST['username']) && isset($_POST['password'])) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 
-		$username = $_POST['username'];
-		$password = $_POST['password'];
+	$q 		  = "select * from users where username = '$username' and password = '$password' ";
 
-		$query	  = mysqli_query("select * from users where username = '$username' and password = '$password' ");
-		$fetch	  = mysqli_fetch_object($query);
+	$query	  = mysqli_query($db->db_select, $q);
 
-		if(isset($fetch)) {
-			echo "Success";
-		}
-		else {
-			echo "Failed";
-		}
-
-		$db->close();
-
+	if(mysqli_num_rows > 0) {
+		echo "success";
+	} else {
+		echo "failed";
 	}
+
+	$db->close();
 
 ?>

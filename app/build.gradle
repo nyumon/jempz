@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,4 +29,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.0.+'
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
 }
