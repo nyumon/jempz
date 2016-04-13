@@ -64,6 +64,7 @@ public class LoginActivity extends Activity {
         alert_login     = (TextView)findViewById(R.id.alert_login);
         forgot_password = (TextView) findViewById(R.id.forgot_password);
 
+
     }
 
     public void invokeLogin(View view) {
@@ -72,6 +73,23 @@ public class LoginActivity extends Activity {
         password = login_password.getText().toString();
 
         login(username, password);
+
+    }
+
+    public void ForgotPassword(View view) {
+
+    }
+
+    public void skip (View view) {
+
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void invokeRegister(View view) {
+
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
 
     }
 
@@ -84,7 +102,7 @@ public class LoginActivity extends Activity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loginDialog = ProgressDialog.show(LoginActivity.this, "Please Wait", "Waiting");
+                loginDialog = ProgressDialog.show(LoginActivity.this, "Menyambungkan", "Mohon tunggu sebentar");
             }
 
             @Override
