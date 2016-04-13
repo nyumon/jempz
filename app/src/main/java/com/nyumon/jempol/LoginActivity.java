@@ -102,7 +102,7 @@ public class LoginActivity extends Activity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loginDialog = ProgressDialog.show(LoginActivity.this, "Please Wait", "Waiting");
+                loginDialog = ProgressDialog.show(LoginActivity.this, "Menyambungkan", "Mohon tunggu sebentar");
             }
 
             @Override
