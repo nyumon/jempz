@@ -19,13 +19,16 @@ import android.widget.ImageView;
 
 import com.nyumon.jempol.ExpandedGridView;
 import com.nyumon.jempol.ImageAdapter;
+import com.nyumon.jempol.MainActivity;
 import com.nyumon.jempol.MyPost;
 import com.nyumon.jempol.R;
 import com.nyumon.jempol.RoundedImg;
+import com.nyumon.jempol.SuntingProfil;
 
 
 public class TwoFragment extends Fragment {
     ImageView fotoprofil;
+    ImageView Sunting;
     RoundedImg roundedImg;
     Button btnberlangganan;
     public TwoFragment() {
@@ -45,13 +48,6 @@ public class TwoFragment extends Fragment {
         GridView gridView = (GridView)rootView.findViewById(R.id.grid_view);
 
         btnberlangganan = (Button)rootView.findViewById(R.id.btnberlangganan);
-        btnberlangganan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnberlangganan.setText("Berhenti Berlangganan");
-
-            }
-        });
 
         fotoprofil =(ImageView) rootView.findViewById(R.id.FotoProfil);
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.profill);
@@ -66,7 +62,7 @@ public class TwoFragment extends Fragment {
         gridView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_MOVE){
+                if (event.getAction() == MotionEvent.ACTION_MOVE) {
                     return false;
                 }
                 return false;
@@ -88,8 +84,13 @@ public class TwoFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+
         return rootView;
 
+
     }
+
+
 
 }

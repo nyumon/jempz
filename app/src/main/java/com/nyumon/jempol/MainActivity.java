@@ -21,6 +21,9 @@ import android.widget.AdapterView;
 
 import android.widget.EditText;
 
+import com.nyumon.jempol.Berlangganan.Berlangganan;
+import com.nyumon.jempol.Langganan.langganan;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void kesuntingprofil(View view){
+        Intent intent = new Intent(this, SuntingProfil.class);
+        startActivity(intent);
+    }
     public void setPemberitahuan(View view){
         Intent intent = new Intent(this, Pemberitahuan.class);
         startActivity(intent);
@@ -102,6 +109,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+
+    public void keberlangganan(View view){
+        Intent intent = new Intent(this, Berlangganan.class);
+        startActivity(intent);
+    }
+    public void keLangganan(View view){
+        Intent intent = new Intent(this,langganan.class);
+        startActivity(intent);
+    }
+
 
 
 

@@ -72,6 +72,14 @@
         <activity
             android:name=".EditKataSandi"
             android:label="@string/title_activity_edit_kata_sandi"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".Berlangganan.Berlangganan"
+            android:label="@string/title_activity_berlangganan"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".Langganan.langganan"
+            android:label="@string/title_activity_langganan"
             android:theme="@style/MyMaterialTheme"></activity>
     </application>
 

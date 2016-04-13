@@ -16,5 +16,7 @@
     <string name="title_activity_comment">Comment</string>
     <string name="title_activity_isicomment">isicomment</string>
     <string name="title_activity_edit_kata_sandi">EditKataSandi</string>
+    <string name="title_activity_berlangganan">Berlangganan</string>
+    <string name="title_activity_langganan">langganan</string>
 
 </resources>
