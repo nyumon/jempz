@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/windowBackgroundSecondary">
+    android:background="@drawable/macet35">>
 
     <LinearLayout
         android:padding="20sp"
@@ -97,8 +97,8 @@
                 android:text="Lupa Password?"
                 android:gravity="center"
                 android:textAppearance="@style/SmallText"
-                android:onClick="ForgotPassword"
-                android:textColor="@color/linkColor"/>
+                android:textColor="@color/linkColor"
+                android:onClick="masuk"/>
 
             <TextView
                 android:layout_width="match_parent"

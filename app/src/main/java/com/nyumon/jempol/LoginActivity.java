@@ -236,5 +236,11 @@ public class LoginActivity extends Activity {
         startActivity(intent);
     }
 
+    public void masuk(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
 
 }
