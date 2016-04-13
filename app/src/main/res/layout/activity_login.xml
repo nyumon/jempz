@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/windowBackgroundSecondary">
+    android:background="@drawable/macet35">>
 
     <LinearLayout
         android:padding="20sp"
@@ -99,8 +99,11 @@
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"
                 android:onClick="masuk"/>
+<<<<<<< HEAD
                 <!--android:onClick="ForgotPassword"-->
                 <!--android:textColor="@color/linkColor"/>-->
+=======
+>>>>>>> 5571649dd4920e2b2aec9a3137a912a45c6384ac
 
             <TextView
                 android:layout_width="match_parent"
@@ -111,7 +114,10 @@
                 android:onClick="skip"
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5571649dd4920e2b2aec9a3137a912a45c6384ac
 
         </LinearLayout>
 

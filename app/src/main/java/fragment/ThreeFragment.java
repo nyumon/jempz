@@ -3,6 +3,7 @@ package fragment;
 /**
  * Created by com.nyumon on 23/03/16.
  */
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
@@ -16,13 +17,20 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.nyumon.jempol.CustomAdapter;
 import com.nyumon.jempol.MainActivity;
@@ -30,27 +38,38 @@ import com.nyumon.jempol.NewPostActivity;
 import com.nyumon.jempol.R;
 
 
-public class ThreeFragment extends Fragment{
+public class ThreeFragment extends Fragment {
+    private View rootView;
+    private ViewFlipper mViewFlipper, mViewFlipper2, mViewFlipper3;
+    private GestureDetector mGestureDetector;
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+    private Animation.AnimationListener mAnimationListener;
+    private Context mContext;
+    @SuppressWarnings("deprecation")
+    private final GestureDetector detector = new GestureDetector(new SwipeGestureDetector());
 
-    String first = "";
-    String second = "";
-    private static final String TAG = "RecyclerViewFragment";
-    private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-    private static final int SPAN_COUNT = 4;
-    private static final int DATASET_HARI = 40;
-    private static final int DATASET_MINGGU = 70;
-    private static final int DATASET_BULAN = 100;
-    private enum LayoutManagerType {
-        GRID_LAYOUT_MANAGER
-    }
-
-    protected LayoutManagerType mCurrentLayoutManagerType;
-    protected RecyclerView mRecyclerView;
-    protected CustomAdapter mAdapter;
-    protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDatasetHari;
-    protected String[] mDatasetMinggu;
-    protected String[] mDatasetBulan;
+    int[] resource = {
+            R.drawable.jempol,
+            R.drawable.macet,
+            R.drawable.jempol,
+            R.drawable.macet,
+            R.drawable.jempol
+    };
+    int[] resource2 = {
+            R.drawable.add1,
+            R.drawable.macet,
+            R.drawable.add1,
+            R.drawable.macet,
+            R.drawable.add1
+    };
+    int[] resource3 = {
+            R.drawable.macet,
+            R.drawable.jempol,
+            R.drawable.macet,
+            R.drawable.jempol,
+            R.drawable.macet
+    };
 
     public ThreeFragment(){
 
@@ -58,99 +77,136 @@ public class ThreeFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initDataset();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.threefragment, container, false);
-        rootView.setTag(TAG);
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        // Inflate the layout for this fragment
-        mLayoutManager = new LinearLayoutManager(getActivity());
+        rootView =  inflater.inflate(R.layout.threefragment, container, false);
+        mContext = getActivity();
+        mViewFlipper = (ViewFlipper) rootView.findViewById(R.id.viewFlipper);
+        mViewFlipper.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(final View view, MotionEvent event) {
+                detector.onTouchEvent(event);
+                return true;
+            }
+        });
+        mViewFlipper2 = (ViewFlipper) rootView.findViewById(R.id.viewFlipper2);
+        mViewFlipper2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(final View view, MotionEvent event) {
+                detector.onTouchEvent(event);
+                return true;
+            }
+        });
+        mViewFlipper3 = (ViewFlipper) rootView.findViewById(R.id.viewFlipper3);
+        mViewFlipper3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(final View view, MotionEvent event) {
+                detector.onTouchEvent(event);
+                return true;
+            }
+        });
 
-        mCurrentLayoutManagerType = LayoutManagerType.GRID_LAYOUT_MANAGER;
+        mViewFlipper.setAutoStart(true);
+        mViewFlipper.setFlipInterval(1000);
+        mViewFlipper.startFlipping();
 
-        if (savedInstanceState != null) {
-            // Restore saved layout manager type.
-            mCurrentLayoutManagerType = (LayoutManagerType) savedInstanceState
-                    .getSerializable(KEY_LAYOUT_MANAGER);
+        mViewFlipper2.setAutoStart(true);
+        mViewFlipper2.setFlipInterval(1000);
+        mViewFlipper2.startFlipping();
+
+        mViewFlipper3.setAutoStart(true);
+        mViewFlipper3.setFlipInterval(1000);
+        mViewFlipper3.startFlipping();
+
+
+        for(int i = 0; i < resource.length; i++){
+            ImageView imageview = new ImageView(this.getActivity());
+            imageview.setImageResource(resource[i]);
+            mViewFlipper.addView(imageview);
         }
-        setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
+        for(int i = 0; i < resource2.length; i++){
+            ImageView imageview = new ImageView(this.getActivity());
+            imageview.setImageResource(resource2[i]);
+            mViewFlipper2.addView(imageview);
+        }
+        for(int i = 0; i < resource3.length; i++) {
+            ImageView imageview = new ImageView(this.getActivity());
+            imageview.setImageResource(resource3[i]);
+            mViewFlipper3.addView(imageview);
+        }
 
-        mAdapter = new CustomAdapter(mDatasetHari);
-        mAdapter = new CustomAdapter(mDatasetMinggu);
-        mAdapter = new CustomAdapter(mDatasetBulan);
-        // Set CustomAdapter as the adapter for RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-        RadioButton mGrid1LayoutRadioButton = (RadioButton) rootView.findViewById(R.id.grid_layout_rb);
-        mGrid1LayoutRadioButton.setOnClickListener(new View.OnClickListener() {
+        mAnimationListener = new Animation.AnimationListener() {
             @Override
-            public void onClick(View v) {
-                setRecyclerViewLayoutManager(LayoutManagerType.GRID_LAYOUT_MANAGER);
-            }
-        });
+            public void onAnimationStart(Animation animation) {
 
-        RadioButton mGrid2LayoutRadioButton = (RadioButton) rootView.findViewById(R.id.grid2_layout_rb);
-        mGrid2LayoutRadioButton.setOnClickListener(new View.OnClickListener() {
+            }
+
             @Override
-            public void onClick(View v) {
-                setRecyclerViewLayoutManager(LayoutManagerType.GRID_LAYOUT_MANAGER);
-            }
-        });
+            public void onAnimationEnd(Animation animation) {
 
-        RadioButton mGrid3LayoutRadioButton = (RadioButton) rootView.findViewById(R.id.grid3_layout_rb);
-        mGrid3LayoutRadioButton.setOnClickListener(new View.OnClickListener() {
+            }
+
             @Override
-            public void onClick(View v) {
-                setRecyclerViewLayoutManager(LayoutManagerType.GRID_LAYOUT_MANAGER);
-            }
-        });
+            public void onAnimationRepeat(Animation animation) {
 
+            }
+        };
         return rootView;
-    }
-    public void setRecyclerViewLayoutManager(LayoutManagerType layoutManagerType) {
-        int scrollPosition = 0;
-
-        // If a layout manager has already been set, get current scroll position.
-        if (mRecyclerView.getLayoutManager() != null) {
-            scrollPosition = ((GridLayoutManager) mRecyclerView.getLayoutManager())
-                    .findFirstCompletelyVisibleItemPosition();
-        }
-
-        switch (layoutManagerType) {
-            case GRID_LAYOUT_MANAGER:
-                mLayoutManager = new GridLayoutManager(getActivity(), SPAN_COUNT);
-                mCurrentLayoutManagerType = LayoutManagerType.GRID_LAYOUT_MANAGER;
-                break;
-            default:
-                mLayoutManager = new GridLayoutManager(getActivity(), SPAN_COUNT);
-                mCurrentLayoutManagerType = LayoutManagerType.GRID_LAYOUT_MANAGER;
-        }
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.scrollToPosition(scrollPosition);
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putSerializable(KEY_LAYOUT_MANAGER, mCurrentLayoutManagerType);
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    private void initDataset() {
-        mDatasetHari = new String[DATASET_HARI];
-        for (int i = 0; i < DATASET_HARI; i++) {
-            mDatasetHari[i] = "";
-        }
-        mDatasetMinggu = new String[DATASET_MINGGU];
-        for (int i = 0; i < DATASET_MINGGU; i++) {
-            mDatasetMinggu[i] = "";
-        }
-        mDatasetBulan = new String[DATASET_BULAN];
-        for (int i = 0; i < DATASET_BULAN; i++) {
-            mDatasetBulan[i] = "";
+    class SwipeGestureDetector extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            try {
+                // right to left swipe
+                if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_in));
+                    mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
+                    mViewFlipper2.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_in));
+                    mViewFlipper2.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
+                    mViewFlipper3.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_in));
+                    mViewFlipper3.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
+                    // controlling animation
+                    mViewFlipper.getInAnimation().setAnimationListener(mAnimationListener);
+                    mViewFlipper.showNext();
+                    mViewFlipper2.getInAnimation().setAnimationListener(mAnimationListener);
+                    mViewFlipper.showNext();
+                    mViewFlipper3.getInAnimation().setAnimationListener(mAnimationListener);
+                    mViewFlipper.showNext();
+                    return true;
+                } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
+                    mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext,R.anim.right_out));
+                    mViewFlipper2.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
+                    mViewFlipper2.setOutAnimation(AnimationUtils.loadAnimation(mContext,R.anim.right_out));
+                    mViewFlipper3.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
+                    mViewFlipper3.setOutAnimation(AnimationUtils.loadAnimation(mContext,R.anim.right_out));
+                    // controlling animation
+                    mViewFlipper.getInAnimation().setAnimationListener(mAnimationListener);
+                    mViewFlipper.showPrevious();
+                    mViewFlipper2.getInAnimation().setAnimationListener(mAnimationListener);
+                    mViewFlipper2.showPrevious();
+                    mViewFlipper3.getInAnimation().setAnimationListener(mAnimationListener);
+                    mViewFlipper3.showPrevious();
+                    return true;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return false;
         }
     }
+
+
 }

@@ -8,8 +8,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -45,6 +48,11 @@ public class LoginActivity extends Activity {
     private TextView alert_login, forgot_password;
 
     private String username, password;
+    private ConnectivityManager connectivityManager;
+    private NetworkInfo networkInfo;
+    private Boolean isConnectingToInternet;
+    private Context context;
+
     public static final String USER_NAME = "USERNAME";
 
     int counter = 3;
@@ -64,6 +72,7 @@ public class LoginActivity extends Activity {
         alert_login     = (TextView)findViewById(R.id.alert_login);
         forgot_password = (TextView) findViewById(R.id.forgot_password);
 
+        context         = LoginActivity.this;
 
     }
 
@@ -72,7 +81,25 @@ public class LoginActivity extends Activity {
         username = login_username.getText().toString();
         password = login_password.getText().toString();
 
-        login(username, password);
+        connectivityManager    = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        networkInfo            = connectivityManager.getActiveNetworkInfo();
+        isConnectingToInternet = networkInfo != null && networkInfo.isConnectedOrConnecting();
+
+        if(isConnectingToInternet) {
+            login(username, password);
+        } else {
+            AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+            alertDialog.setTitle("Tidak ada koneksi");
+            alertDialog.setMessage("Aktifkan koneksi internet");
+
+            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+
+            // Showing Alert Message
+            alertDialog.show();
+        }
 
     }
 

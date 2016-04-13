@@ -1,9 +1,15 @@
 package com.nyumon.jempol;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +50,11 @@ public class RegisterActivity extends Activity {
     private Integer role, status;
     private Timestamp join;
 
+    private ConnectivityManager connectivityManager;
+    private NetworkInfo networkInfo;
+    private Boolean isConnectingToInternet;
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +68,7 @@ public class RegisterActivity extends Activity {
         etUsername      = (EditText) findViewById(R.id.etUsername);
         etPassword      = (EditText) findViewById(R.id.etPassword);
 
+        context         = RegisterActivity.this;
     }
 
     public void invokeRegister(View view) {
@@ -66,7 +78,25 @@ public class RegisterActivity extends Activity {
         username    = etUsername.getText().toString();
         password    = etPassword.getText().toString();
 
-        register(fullname, email, username, password);
+        connectivityManager    = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        networkInfo            = connectivityManager.getActiveNetworkInfo();
+        isConnectingToInternet = networkInfo != null && networkInfo.isConnectedOrConnecting();
+
+        if(isConnectingToInternet) {
+            register(fullname, email, username, password);
+        } else {
+            AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+            alertDialog.setTitle("Tidak ada koneksi");
+            alertDialog.setMessage("Aktifkan koneksi internet");
+
+            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+
+            // Showing Alert Message
+            alertDialog.show();
+        }
 
     }
 
