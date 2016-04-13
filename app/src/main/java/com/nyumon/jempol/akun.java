@@ -125,8 +125,8 @@ public class akun extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void keprofil(View view){
-        Intent intent = new Intent(this, ProfilActivity2.class);
+    public void keubahkatasandi(View view){
+        Intent intent = new Intent(this,EditKataSandi.class);
         startActivity(intent);
     }
 

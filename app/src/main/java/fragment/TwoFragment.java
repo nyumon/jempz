@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -26,6 +27,7 @@ import com.nyumon.jempol.RoundedImg;
 public class TwoFragment extends Fragment {
     ImageView fotoprofil;
     RoundedImg roundedImg;
+    Button btnberlangganan;
     public TwoFragment() {
         // Required empty public constructor
     }
@@ -42,11 +44,19 @@ public class TwoFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.twofragment,container, false);
         GridView gridView = (GridView)rootView.findViewById(R.id.grid_view);
 
+        btnberlangganan = (Button)rootView.findViewById(R.id.btnberlangganan);
+        btnberlangganan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnberlangganan.setText("Berhenti Berlangganan");
+
+            }
+        });
 
         fotoprofil =(ImageView) rootView.findViewById(R.id.FotoProfil);
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.profill);
         roundedImg = new RoundedImg(bm);
-        
+
         fotoprofil.setImageDrawable(roundedImg);
 
 
