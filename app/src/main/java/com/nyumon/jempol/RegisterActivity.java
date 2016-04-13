@@ -24,21 +24,18 @@ public class RegisterActivity extends Activity {
         btnLogin    = (Button) findViewById(R.id.btnLogin);
         btnRegister = (Button) findViewById(R.id.btnLogin);
 
+    }
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+    public void invokeRegister(View view) {
+
+
+
+    }
+
+    public void invokeLogin(View view) {
+
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(intent);
 
     }
 }

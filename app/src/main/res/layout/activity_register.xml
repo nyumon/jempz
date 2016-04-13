@@ -95,7 +95,8 @@
             android:textAppearance="@style/NormalText"
             android:background="@drawable/button_subscribe_1"
             android:textColor="@color/colorSecondary"
-            android:layout_marginTop="5sp"/>
+            android:layout_marginTop="5sp"
+            android:onClick="invokeRegister"/>
 
         <Button
             android:id="@+id/btnLogin"
@@ -106,6 +107,7 @@
             android:textAppearance="@style/NormalText"
             android:background="@drawable/button_subscribe_1"
             android:textColor="@color/colorSecondary"
+            android:onClick="invokeLogin"
             android:layout_marginTop="5sp"/>
 
     </LinearLayout>
