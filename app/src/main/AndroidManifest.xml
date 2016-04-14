@@ -94,6 +94,10 @@
             android:name=".Timeline.Timeline_View"
             android:label="Posting"
             android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".ProfilTeman"
+            android:label="ProfilTeman"
+            android:theme="@style/MyMaterialTheme"/>
     </application>
 
 </manifest>

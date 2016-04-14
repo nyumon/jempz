@@ -44,6 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bagas Sucipto"
+                    android:onClick="ProfilTeman"
                     android:padding="5sp"
                     android:id="@+id/person_name"/>
 

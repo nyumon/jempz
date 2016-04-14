@@ -120,13 +120,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     public void kekomentarr(View view){
         Intent intent = new Intent(this, Timeline_View.class);
         startActivity(intent);
     }
-
-
+    public void ProfilTeman(View view){
+        Intent intent = new Intent(this, ProfilTeman.class);
+        startActivity(intent);
+    }
     public void keberlangganan(View view){
         Intent intent = new Intent(this, Berlangganan.class);
         startActivity(intent);

@@ -1,0 +1,181 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/windowBackgroundSecondary"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                tools:context="com.nyumon.jempol.MainActivity"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/colorPrimary">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <!-- Row 3 with 2 columns -->
+                                <TableRow
+                                    android:layout_height="wrap_content"
+                                    android:layout_width="fill_parent"
+                                    android:gravity="center_horizontal"
+                                    android:layout_marginTop="5sp"
+                                    android:layout_weight="1">
+
+
+
+                                    <ImageView
+                                        android:layout_width="120dp"
+                                        android:layout_height="120dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/circle"
+                                        android:src="@drawable/profill"
+                                        android:layout_marginTop="10sp"
+                                        android:id="@+id/FotoProfil"
+                                        android:layout_centerHorizontal="true"/>
+
+                                </TableRow>
+                            </TableLayout>
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10sp"
+                            android:id="@+id/nama"
+                            android:text="Rizky Hasibuan"
+                            android:textAppearance="@style/BigText"
+                            android:textColor="@color/windowBackground"
+                            android:gravity="center"/>
+                        <Button
+                            android:id="@+id/subscribe"
+                            android:text="Berlangganan"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10sp"
+                            android:layout_gravity="center"
+                            android:layout_height="30sp"
+                            android:textColor="@color/colorPrimary"
+                            android:textAppearance="@style/TinyText"
+                            android:textAllCaps="false"
+                            android:background="@drawable/button_subscribe_0"/>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10sp">
+                            <!-- Row 3 with 2 columns -->
+                            <TableRow
+                                android:layout_height="wrap_content"
+                                android:layout_width="fill_parent"
+                                android:gravity="center_horizontal"
+                                android:layout_marginTop="3sp"
+                                android:background="@color/cardview_shadow_end_color"
+                                android:layout_weight="1"
+                                android:weightSum="3">
+
+                                <TextView
+                                    android:id="@+id/totalberlangganan"
+                                    android:text="7 \n Berlangganan"
+                                    android:textColor="@color/colorSecondary"
+                                    android:padding="20dip"
+                                    android:gravity="center"
+                                    android:layout_weight="1"
+                                    android:textAppearance="@style/SmallText"
+                                    android:onClick="keberlangganan"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:id="@+id/totallangganan"
+                                    android:text="1 \n Langganan   "
+                                    android:textColor="@color/colorSecondary"
+                                    android:padding=  "20dip"
+                                    android:gravity="center"
+                                    android:layout_weight="1"
+                                    android:textAppearance="@style/SmallText"
+                                    android:onClick="keLangganan"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:id="@+id/Totalpost"
+                                    android:text="0 \n Laporan"
+                                    android:layout_weight="2"
+                                    android:textColor="@color/colorSecondary"
+                                    android:padding=  "20dip"
+                                    android:gravity="center"
+                                    android:textAppearance="@style/SmallText"
+                                    android:layout_gravity="center_horizontal"/>
+                            </TableRow>
+
+                        </TableLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Laporan Saya"
+                        android:padding="20sp"
+                        android:textAppearance="@style/SmallText"
+                        android:gravity="center"/>
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:background="@color/title_row">
+                    </View>
+                    <com.nyumon.jempol.ExpandedGridView
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/grid_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:columnWidth="90dp"
+                        android:layout_weight="1"
+                        android:numColumns="auto_fit"
+                        android:verticalSpacing="10dp"
+                        android:horizontalSpacing="10dp"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center"
+                        ></com.nyumon.jempol.ExpandedGridView>
+                </LinearLayout>
+
+
+            </ScrollView>
+        </LinearLayout>
+
+        </android.support.v4.widget.DrawerLayout>
+    </android.support.design.widget.CoordinatorLayout>

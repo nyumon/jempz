@@ -79,7 +79,7 @@
                                     android:textColor="@color/linkColor"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="name"
+                                    android:text="Fajar Satria Akbar"
                                     android:padding="5sp"
                                     android:id="@+id/person_name"/>
 
