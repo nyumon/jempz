@@ -73,6 +73,8 @@ public class LoginActivity extends Activity {
 
         context         = LoginActivity.this;
 
+        forgot_password.setBackgroundResource(0);
+
     }
     public void LupaPassword(View view){
         Intent intent = new Intent(this, LupaPassword.class);
@@ -104,16 +106,6 @@ public class LoginActivity extends Activity {
             alertDialog.show();
         }
 
-    }
-
-    public void ForgotPassword(View view) {
-
-    }
-
-    public void skip (View view) {
-
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
     }
 
     public void invokeRegister(View view) {

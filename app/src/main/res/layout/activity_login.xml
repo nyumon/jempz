@@ -89,16 +89,6 @@
                 android:textColor="@color/linkColor"
                 android:onClick="LupaPassword"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20sp"
-                android:text="Lewati"
-                android:gravity="center"
-                android:onClick="skip"
-                android:textAppearance="@style/SmallText"
-                android:textColor="@color/linkColor"/>
-
 
 
     </LinearLayout>
