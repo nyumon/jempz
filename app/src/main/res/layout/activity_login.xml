@@ -1,93 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:padding="20sp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/macet35">>
+    android:orientation="vertical"
+    android:background="@drawable/macet35"
+    android:isScrollContainer="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/jempol"
+        android:padding="50sp"
+        android:layout_gravity="center_horizontal"/>
 
     <LinearLayout
-        android:padding="20sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jempol"
-            android:padding="60sp"
-            android:layout_gravity="center_horizontal"/>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="20sp"
-            android:paddingRight="20sp">
+            android:hint="Username"
+            android:padding="15sp"
+            android:background="@color/windowBackground"
+            android:textColor="@color/textColorPrimary"
+            android:textColorHighlight="@color/textColorSecondary"
+            android:textColorHint="@color/textColorSecondary"
+            android:textAppearance="@style/NormalText"/>
 
-            <EditText
-                android:id="@+id/login_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Username"
-                android:padding="15sp"
-                android:background="@color/windowBackground"
-                android:textColor="@color/textColorPrimary"
-                android:textColorHighlight="@color/textColorSecondary"
-                android:textColorHint="@color/textColorSecondary"
-                android:textAppearance="@style/NormalText"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/windowBackgroundSecondary"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1sp"
-                android:background="@color/windowBackgroundSecondary"/>
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:padding="15sp"
+            android:background="@color/windowBackground"
+            android:inputType="textPassword"
+            android:textColor="@color/textColorPrimary"
+            android:textColorHighlight="@color/textColorSecondary"
+            android:textColorHint="@color/textColorSecondary"
+            android:textAppearance="@style/NormalText"/>
 
-            <EditText
-                android:id="@+id/login_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:padding="15sp"
-                android:background="@color/windowBackground"
-                android:inputType="textPassword"
-                android:textColor="@color/textColorPrimary"
-                android:textColorHighlight="@color/textColorSecondary"
-                android:textColorHint="@color/textColorSecondary"
-                android:textAppearance="@style/NormalText"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/NormalText"
+            android:text="Masuk"
+            android:textAllCaps="false"
+            android:id="@+id/button_login"
+            android:background="@drawable/button_subscribe_1"
+            android:textColor="@color/colorSecondary"
+            android:onClick="invokeLogin"
+            android:layout_marginTop="5sp"/>
 
-            <TextView
-                android:id="@+id/alert_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10sp"
-                android:textColor="@color/colorAccent"
-                android:textAppearance="@style/SmallText"/>
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/NormalText"
-                android:text="Masuk"
-                android:textAllCaps="false"
-                android:id="@+id/button_login"
-                android:background="@drawable/button_subscribe_1"
-                android:textColor="@color/colorSecondary"
-                android:onClick="invokeLogin" />
-
-            <Button
-                android:id="@+id/button_register"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Buat akun baru"
-                android:textAllCaps="false"
-                android:textAppearance="@style/NormalText"
-                android:background="@drawable/button_subscribe_1"
-                android:textColor="@color/colorSecondary"
-                android:onClick="invokeRegister"
-                android:layout_marginTop="5sp"/>
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Buat akun baru"
+            android:textAllCaps="false"
+            android:textAppearance="@style/NormalText"
+            android:background="@drawable/button_subscribe_1"
+            android:textColor="@color/colorSecondary"
+            android:onClick="invokeRegister"
+            android:layout_marginTop="5sp"/>
 
             <Button
                 android:id="@+id/forgot_password"
@@ -98,9 +87,15 @@
                 android:gravity="center"
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"
+<<<<<<< HEAD
                 android:onClick="LupaPassword"/>
          
             <Button
+=======
+                android:onClick="masuk"/>
+
+            <TextView
+>>>>>>> 76d73d7f0ef9e39865de24be35be040b9a134368
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20sp"
@@ -110,8 +105,8 @@
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"/>
 
-        </LinearLayout>
+
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

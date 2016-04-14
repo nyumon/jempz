@@ -35,7 +35,11 @@ public class LokasiSama extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+<<<<<<< HEAD
         setTitle("Lokasi yang Sama");
+=======
+        setTitle("Lokasi yang sama");
+>>>>>>> 76d73d7f0ef9e39865de24be35be040b9a134368
 
         final ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;

@@ -70,9 +70,9 @@ public class OneFragment extends Fragment {
                         int start = adapter.getItemCount();
                         int end = start + 5;
 
-                        /*for (int i = start; i < end; i++) {
-                            DataSet.add(new TimelineDataSet(R.drawable.people, "Pengguna"+i, i+"minute ago", R.drawable.macet, "Jalanan Macet"));
-                        }*/
+                        for (int i = start; i < end; i++) {
+                            DataSet.add(new TimelineDataSet(R.drawable.people, "Fajar Satria Akbar", "12 minute ago", R.drawable.macet, "Macet", "Jalanan Macet"));
+                        }
 
                         adapter.addItemMore(DataSet);
                         adapter.setMoreLoading(false);

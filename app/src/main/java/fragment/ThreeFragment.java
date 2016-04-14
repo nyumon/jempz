@@ -6,35 +6,27 @@ package fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.nyumon.jempol.CustomAdapter;
-import com.nyumon.jempol.MainActivity;
-import com.nyumon.jempol.NewPostActivity;
+import com.nyumon.jempol.AllTrending.FloatingGroupExpandableListView;
+import com.nyumon.jempol.AllTrending.SampleAdapter;
+import com.nyumon.jempol.AllTrending.WrapperExpandableListAdapter;
 import com.nyumon.jempol.R;
 
 
@@ -47,29 +39,6 @@ public class ThreeFragment extends Fragment {
     private Animation.AnimationListener mAnimationListener;
     private Context mContext;
     @SuppressWarnings("deprecation")
-    private final GestureDetector detector = new GestureDetector(new SwipeGestureDetector());
-
-    int[] resource = {
-            R.drawable.jempol,
-            R.drawable.macet,
-            R.drawable.macet35,
-            R.drawable.macet,
-            R.drawable.jempol
-    };
-    int[] resource2 = {
-            R.drawable.add1,
-            R.drawable.macet,
-            R.drawable.macet35,
-            R.drawable.macet,
-            R.drawable.add1
-    };
-    int[] resource3 = {
-            R.drawable.macet,
-            R.drawable.jempol,
-            R.drawable.macet35,
-            R.drawable.jempol,
-            R.drawable.macet
-    };
 
     public ThreeFragment(){
 
@@ -84,129 +53,81 @@ public class ThreeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView =  inflater.inflate(R.layout.threefragment, container, false);
-        mContext = getActivity();
-        mViewFlipper = (ViewFlipper) rootView.findViewById(R.id.viewFlipper);
-        mViewFlipper.setOnTouchListener(new View.OnTouchListener() {
+
+        final FloatingGroupExpandableListView list = (FloatingGroupExpandableListView)rootView.findViewById(R.id.sample_activity_list);
+
+        final LayoutInflater inflater1 = LayoutInflater.from(getActivity());
+
+        final View header = inflater1.inflate(R.layout.sample_activity_list_header, list, false);
+        list.addHeaderView(header);
+
+        final View footer = inflater1.inflate(R.layout.sample_activity_list_footer, list, false);
+        footer.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public boolean onTouch(final View view, MotionEvent event) {
-                detector.onTouchEvent(event);
-                return true;
+            public void onClick(View v) {
+                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/diegocarloslima/FloatingGroupExpandableListView"));
+                startActivity(intent);
             }
         });
-        mViewFlipper2 = (ViewFlipper) rootView.findViewById(R.id.viewFlipper2);
-        mViewFlipper2.setOnTouchListener(new View.OnTouchListener() {
+        list.addFooterView(footer);
+
+        // Even though the child divider has already been set on the layout file, we have to set it again here
+        // This prevents a bug where the background turns to the color of the child divider when the list is expanded
+        list.setChildDivider(new ColorDrawable(Color.BLACK));
+
+        final SampleAdapter adapter = new SampleAdapter(getActivity());
+        final WrapperExpandableListAdapter wrapperAdapter = new WrapperExpandableListAdapter(adapter);
+        list.setAdapter(wrapperAdapter);
+
+        for(int i = 0; i < wrapperAdapter.getGroupCount(); i++) {
+            list.expandGroup(i);
+        }
+
+        list.setOnScrollFloatingGroupListener(new FloatingGroupExpandableListView.OnScrollFloatingGroupListener() {
+
             @Override
-            public boolean onTouch(final View view, MotionEvent event) {
-                detector.onTouchEvent(event);
-                return true;
+            public void onScrollFloatingGroupListener(View floatingGroupView, int scrollY) {
+                float interpolation = - scrollY / (float) floatingGroupView.getHeight();
+
+                // Changing from RGB(162,201,85) to RGB(255,255,255)
+                final int greenToWhiteRed = (int) (162 + 93 * interpolation);
+                final int greenToWhiteGreen = (int) (201 + 54 * interpolation);
+                final int greenToWhiteBlue = (int) (85 + 170 * interpolation);
+                final int greenToWhiteColor = Color.argb(255, greenToWhiteRed, greenToWhiteGreen, greenToWhiteBlue);
+
+                // Changing from RGB(255,255,255) to RGB(0,0,0)
+                final int whiteToBlackRed = (int) (255 - 255 * interpolation);
+                final int whiteToBlackGreen = (int) (255 - 255 * interpolation);
+                final int whiteToBlackBlue = (int) (255 - 255 * interpolation);
+                final int whiteToBlackColor = Color.argb(255, whiteToBlackRed, whiteToBlackGreen, whiteToBlackBlue);
+
+                final ImageView image = (ImageView) floatingGroupView.findViewById(R.id.sample_activity_list_group_item_image);
+                image.setBackgroundColor(greenToWhiteColor);
+
+                final Drawable imageDrawable = image.getDrawable().mutate();
+                imageDrawable.setColorFilter(whiteToBlackColor, PorterDuff.Mode.SRC_ATOP);
+
+                final View background = floatingGroupView.findViewById(R.id.sample_activity_list_group_item_background);
+                background.setBackgroundColor(greenToWhiteColor);
+
+                final TextView text = (TextView) floatingGroupView.findViewById(R.id.sample_activity_list_group_item_text);
+                text.setTextColor(whiteToBlackColor);
+
+                final ImageView expanded = (ImageView) floatingGroupView.findViewById(R.id.sample_activity_list_group_expanded_image);
+                final Drawable expandedDrawable = expanded.getDrawable().mutate();
+                expandedDrawable.setColorFilter(whiteToBlackColor, PorterDuff.Mode.SRC_ATOP);
             }
         });
-        mViewFlipper3 = (ViewFlipper) rootView.findViewById(R.id.viewFlipper3);
-        mViewFlipper3.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(final View view, MotionEvent event) {
-                detector.onTouchEvent(event);
-                return true;
-            }
-        });
-
-        mViewFlipper.setAutoStart(true);
-        mViewFlipper.setFlipInterval(1000);
-        mViewFlipper.startFlipping();
-
-        mViewFlipper2.setAutoStart(true);
-        mViewFlipper2.setFlipInterval(1000);
-        mViewFlipper2.startFlipping();
-
-        mViewFlipper3.setAutoStart(true);
-        mViewFlipper3.setFlipInterval(1000);
-        mViewFlipper3.startFlipping();
 
 
-        for(int i = 0; i < resource.length; i++){
-            ImageView imageview = new ImageView(this.getActivity());
-            imageview.setImageResource(resource[i]);
-            mViewFlipper.addView(imageview);
-        }
-        for(int i = 0; i < resource2.length; i++){
-            ImageView imageview = new ImageView(this.getActivity());
-            imageview.setImageResource(resource2[i]);
-            mViewFlipper2.addView(imageview);
-        }
-        for(int i = 0; i < resource3.length; i++) {
-            ImageView imageview = new ImageView(this.getActivity());
-            imageview.setImageResource(resource3[i]);
-            mViewFlipper3.addView(imageview);
-        }
-
-        mAnimationListener = new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        };
         return rootView;
     }
+
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    class SwipeGestureDetector extends GestureDetector.SimpleOnGestureListener {
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            try {
-                // right to left swipe
-                if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                    mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_in));
-                    mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
-                    mViewFlipper2.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_in));
-                    mViewFlipper2.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
-                    mViewFlipper3.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_in));
-                    mViewFlipper3.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
-                    // controlling animation
-                    mViewFlipper.getInAnimation().setAnimationListener(mAnimationListener);
-                    mViewFlipper.showNext();
-                    mViewFlipper2.getInAnimation().setAnimationListener(mAnimationListener);
-                    mViewFlipper.showNext();
-                    mViewFlipper3.getInAnimation().setAnimationListener(mAnimationListener);
-                    mViewFlipper.showNext();
-                    return true;
-                } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                    mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
-                    mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext,R.anim.right_out));
-                    mViewFlipper2.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
-                    mViewFlipper2.setOutAnimation(AnimationUtils.loadAnimation(mContext,R.anim.right_out));
-                    mViewFlipper3.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
-                    mViewFlipper3.setOutAnimation(AnimationUtils.loadAnimation(mContext,R.anim.right_out));
-                    // controlling animation
-                    mViewFlipper.getInAnimation().setAnimationListener(mAnimationListener);
-                    mViewFlipper.showPrevious();
-                    mViewFlipper2.getInAnimation().setAnimationListener(mAnimationListener);
-                    mViewFlipper2.showPrevious();
-                    mViewFlipper3.getInAnimation().setAnimationListener(mAnimationListener);
-                    mViewFlipper3.showPrevious();
-                    return true;
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return false;
-        }
     }
-
-
-}

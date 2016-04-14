@@ -19,5 +19,6 @@
     <string name="title_activity_berlangganan">Berlangganan</string>
     <string name="title_activity_langganan">langganan</string>
     <string name="title_activity_lokasi_sama">LokasiSama</string>
+    <string name="title_activity_all_trending">AllTrending</string>
 
 </resources>

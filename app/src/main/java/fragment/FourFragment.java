@@ -111,9 +111,9 @@ public class FourFragment extends Fragment{
                         itemList.clear();
                         mAdapter.setProgressMore(false);
                         int start = mAdapter.getItemCount();
-                        int end = start + 15;
+                        int end = start + 5;
                         for (int i = start + 1; i <= end; i++) {
-                            itemList.add(new ClipData.Item("Bawah" + i));
+                            itemList.add(new ClipData.Item("laporan anda"));
                         }
                         mAdapter.addItemMore(itemList);
                         mAdapter.setMoreLoading(false);
@@ -153,8 +153,8 @@ public class FourFragment extends Fragment{
 
     private void loadData1(){
         itemList.clear();
-        for (int i = 1; i <= 20; i++) {
-            itemList.add(new ClipData.Item("Atas" + i));
+        for (int i = 1; i <= 10; i++) {
+            itemList.add(new ClipData.Item("laporan anda"));
         }
         mAdapter.addAll(itemList);
     }
