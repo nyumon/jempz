@@ -12,6 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +33,7 @@
                 <SearchView
                     android:id="@+id/searchbox"
                     android:icon="@drawable/tool"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:iconifiedByDefault="true"
@@ -48,8 +53,7 @@
 
         <android.support.v4.widget.DrawerLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="105sp">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,11 +65,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                    android:background="@color/windowBackground"/>
+                    android:background="@color/windowBackgroundSecondary"/>
 
             </LinearLayout>
 
         </android.support.v4.widget.DrawerLayout>
+
+        </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>
 

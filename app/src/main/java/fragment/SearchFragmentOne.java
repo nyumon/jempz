@@ -128,7 +128,14 @@ public class SearchFragmentOne extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
 
-                getData();
+                if(newText == "") {
+
+                    pbar.setVisibility(View.GONE);
+
+                }
+                else {
+                    getData(newText);
+                }
 
                 return false;
             }
@@ -137,16 +144,16 @@ public class SearchFragmentOne extends Fragment {
         return rootView;
     }
 
-    private void getData() {
+    private void getData(String q) {
 
-        String        q             = searchView.getQuery().toString();
         String        url           = config.DATA_URL + q.trim();
+
+        pbar.setVisibility(View.VISIBLE);
 
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                pbar.setVisibility(View.VISIBLE);
+                pbar.setVisibility(View.GONE);
                 showJSON(response);
 
             }
@@ -158,15 +165,15 @@ public class SearchFragmentOne extends Fragment {
             }
         });
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        RequestQueue requestQueue = Volley.newRequestQueue(this.getContext());
         requestQueue.add(stringRequest);
 
     }
 
     private void showJSON(String response) {
 
-        String username;
-        String displayname;
+        String username     = "";
+        String displayname  = "";
 
         try {
 
@@ -178,6 +185,7 @@ public class SearchFragmentOne extends Fragment {
             username    = collect.getString(config.KEY_USERNAME);
             displayname = collect.getString(config.KEY_DISPLAYNAME);
 
+            DataSet.clear();
             for(Integer i=0; i<length; i++) {
                 DataSet.add(new SearchPeopleDataSet(username, displayname, 1000+(24*i), 1000+(24*i), (i%2)==0?true:false));
             }
@@ -194,7 +202,7 @@ public class SearchFragmentOne extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        initDataSet();
+        //initDataSet();
     }
 
     public void initDataSet() {
@@ -208,10 +216,10 @@ public class SearchFragmentOne extends Fragment {
 
     class config {
 
-        public static final String DATA_URL         = "http://nyumon.hol.es/search/people?q=";
+        public static final String DATA_URL         = "http://nyumon.hol.es/search/people.php?q=";
         public static final String KEY_USERNAME     = "username";
-        public static final String KEY_DISPLAYNAME  = "displayname";
-        public static final String JSON_ARRAY       = "result";
+        public static final String KEY_DISPLAYNAME  = "display_name";
+        public static final String JSON_ARRAY       = "data";
 
     }
 
