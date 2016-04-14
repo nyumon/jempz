@@ -1,6 +1,7 @@
 package com.nyumon.jempol;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -17,6 +18,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
+
+import com.nyumon.jempol.Berlangganan.Berlangganan;
+import com.nyumon.jempol.Langganan.langganan;
+import com.nyumon.jempol.LokasiSama.LokasiSama;
+import com.nyumon.jempol.Timeline.Timeline_View;
+import com.nyumon.jempol.kategoriSama.KategoriSama;
 
 import org.w3c.dom.Text;
 
@@ -156,6 +163,56 @@ public class SearchActivity extends AppCompatActivity {
         }
 
 
+    }
+    public void NewPost(View view){
+        Intent intent = new Intent(this, NewPostActivity.class);
+        startActivity(intent);
+    }
+
+    public void kesuntingprofil(View view){
+        Intent intent = new Intent(this, SuntingProfil.class);
+        startActivity(intent);
+    }
+    public void setPemberitahuan(View view){
+        Intent intent = new Intent(this, Pemberitahuan.class);
+        startActivity(intent);
+    }
+
+    public void kekategorisama(View view){
+        Intent intent = new Intent(this, KategoriSama.class);
+        startActivity(intent);
+    }
+
+    public void kelokasisama(View view){
+        Intent intent = new Intent(this, LokasiSama.class);
+        startActivity(intent);
+    }
+
+    public void setPrivasi(View view){
+        Intent intent = new Intent(this, akun.class);
+        startActivity(intent);
+    }
+
+    public void Logout(View view){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void kekomentarr(View view){
+        Intent intent = new Intent(this, Timeline_View.class);
+        startActivity(intent);
+    }
+    public void ProfilTeman(View view){
+        Intent intent = new Intent(this, ProfilTeman.class);
+        startActivity(intent);
+    }
+    public void keberlangganan(View view){
+        Intent intent = new Intent(this, Berlangganan.class);
+        startActivity(intent);
+    }
+    public void keLangganan(View view){
+        Intent intent = new Intent(this,langganan.class);
+        startActivity(intent);
     }
 
 

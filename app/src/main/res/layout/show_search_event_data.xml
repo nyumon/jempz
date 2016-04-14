@@ -26,7 +26,8 @@
                 android:layout_width="16sp"
                 android:layout_height="16sp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/gps_grey"/>
+                android:src="@drawable/gps_grey"
+                android:onClick="kelokasisama"/>
 
             <TextView
                 android:id="@+id/search_event_place"
@@ -80,7 +81,8 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/SmallText"
                     android:textColor="@color/textColorSecondary"
-                    android:text="Kecelakaan"/>
+                    android:text="Kecelakaan"
+                    android:onClick="kekategorisama"/>
 
                 <TextView
                     android:id="@+id/search_event_username"
@@ -88,7 +90,8 @@
                     android:textColor="@color/textColorPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bagas Sucipto"/>
+                    android:text="Bagas Sucipto"
+                    android:onClick="ProfilTeman"/>
 
             </LinearLayout>
 
@@ -104,7 +107,7 @@
             <ImageView
                 android:layout_width="16sp"
                 android:layout_height="16sp"
-                android:src="@drawable/gear1"/>
+                android:src="@drawable/gear1" />
 
         </LinearLayout>
 

@@ -25,7 +25,8 @@
             android:orientation="horizontal"
             android:paddingTop="20sp"
             android:layout_gravity="center_vertical"
-            android:paddingBottom="20sp">
+            android:paddingBottom="20sp"
+            android:onClick="kelokasisama">
 
             <ImageView
                 android:id="@+id/search_item_image"

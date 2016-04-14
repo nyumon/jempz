@@ -17,7 +17,8 @@
             android:padding="10dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:onClick="kekomentarr">
 
             <ImageView
                 android:id="@+id/postThumb"
