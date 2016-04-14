@@ -68,7 +68,7 @@ public class KategoriSama extends AppCompatActivity {
                         adapter.setProgressMore(false);
 
                         int start = adapter.getItemCount();
-                        int end = start + 5;
+                        int end = start + 6;
 
                         for (int i = start; i < end; i++) {
                             DataSet.add(new KategorisamaDataset(1));
@@ -107,7 +107,7 @@ public class KategoriSama extends AppCompatActivity {
     public void initDataSet() {
 
         DataSet.clear();
-        for(int i=0; i<=10; i++) {
+        for(int i=0; i<12; i++) {
             DataSet.add(new KategorisamaDataset(1));
         }
         adapter.addAll(DataSet);

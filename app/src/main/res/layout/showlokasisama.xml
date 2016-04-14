@@ -6,8 +6,8 @@
     <ImageView
         android:id="@+id/lokasisama1"
         android:layout_width="120sp"
-        android:layout_height="wrap_content"
+        android:layout_height="120sp"
         android:layout_margin="5sp"
-        android:src="@drawable/jempol" />
+        android:src="@drawable/macet" />
 
 </LinearLayout>
