@@ -152,7 +152,7 @@
                     android:id="@+id/nama2"
                     android:textAppearance="@style/NormalText"
                     android:textColor="@color/linkColor"
-                    android:text="Budi"
+                    android:text="Macet"
                     android:layout_marginRight="5dp"/>
 
                 <TextView

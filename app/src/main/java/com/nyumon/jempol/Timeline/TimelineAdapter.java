@@ -2,6 +2,7 @@ package com.nyumon.jempol.Timeline;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nyumon.jempol.MainActivity;
 import com.nyumon.jempol.R;
 
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.List;
 public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<TimelineDataSet> DataSet;
-    private Context context;
+    public Context context;
 
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
@@ -154,7 +156,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), "Posting dari " + countryName.getText(), Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(view.getContext(), Timeline_View.class);
+            view.getContext().startActivity(intent);
         }
     }
 

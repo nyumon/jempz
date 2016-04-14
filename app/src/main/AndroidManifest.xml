@@ -84,7 +84,11 @@
         <activity
             android:name=".LokasiSama.LokasiSama"
             android:label="@string/title_activity_lokasi_sama"
-            android:theme="@style/MyMaterialTheme"></activity>
+            android:theme="@style/MyMaterialTheme"/>
+        <activity
+            android:name=".Timeline.Timeline_View"
+            android:label="Posting"
+            android:theme="@style/MyMaterialTheme"/>
     </application>
 
 </manifest>
