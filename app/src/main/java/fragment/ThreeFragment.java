@@ -102,21 +102,11 @@ public class ThreeFragment extends Fragment {
                 final int whiteToBlackBlue = (int) (255 - 255 * interpolation);
                 final int whiteToBlackColor = Color.argb(255, whiteToBlackRed, whiteToBlackGreen, whiteToBlackBlue);
 
-                final ImageView image = (ImageView) floatingGroupView.findViewById(R.id.sample_activity_list_group_item_image);
-                image.setBackgroundColor(greenToWhiteColor);
-
-                final Drawable imageDrawable = image.getDrawable().mutate();
-                imageDrawable.setColorFilter(whiteToBlackColor, PorterDuff.Mode.SRC_ATOP);
-
                 final View background = floatingGroupView.findViewById(R.id.sample_activity_list_group_item_background);
                 background.setBackgroundColor(greenToWhiteColor);
 
                 final TextView text = (TextView) floatingGroupView.findViewById(R.id.sample_activity_list_group_item_text);
                 text.setTextColor(whiteToBlackColor);
-
-                final ImageView expanded = (ImageView) floatingGroupView.findViewById(R.id.sample_activity_list_group_expanded_image);
-                final Drawable expandedDrawable = expanded.getDrawable().mutate();
-                expandedDrawable.setColorFilter(whiteToBlackColor, PorterDuff.Mode.SRC_ATOP);
             }
         });
 

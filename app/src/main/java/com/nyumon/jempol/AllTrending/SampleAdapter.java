@@ -19,39 +19,21 @@ public class SampleAdapter extends BaseExpandableListAdapter {
     private final LayoutInflater mLayoutInflater;
 
     private final String[] mGroups = {
-            "Cupcake",
-            "Donut",
-            "Eclair",
-            "Froyo",
-            "Gingerbread",
-            "Honeycomb",
-            "Ice Cream Sandwich",
-            "Jelly Bean",
-            "KitKat"
+            "Hari ini",
+            "Minggu ini",
+            "Bulan ini",
     };
 
     private final int[] mGroupDrawables = {
             R.drawable.add,
             R.drawable.add,
             R.drawable.add,
-            R.drawable.add,
-            R.drawable.add,
-            R.drawable.add,
-            R.drawable.add,
-            R.drawable.add,
-            R.drawable.add
     };
 
     private final String[][] mChilds = {
             {"1.5"},
             {"1.6"},
-            {"2.0","2.0.1","2.1"},
-            {"2.2","2.2.1","2.2.2","2.2.3"},
-            {"2.3","2.3.1","2.3.2","2.3.3","2.3.4","2.3.5","2.3.6","2.3.7"},
-            {"3.0","3.1","3.2","3.2.1","3.2.2","3.2.3","3.2.4","3.2.5","3.2.6"},
-            {"4.0", "4.0.1", "4.0.2", "4.0.3", "4.0.4"},
-            {"4.1", "4.1.1", "4.1.2", "4.2", "4.2.1", "4.2.2", "4.3", "4.3.1"},
-            {"4.4"}
+            {"2.0","2.0.1","2.1"}
     };
 
     public SampleAdapter(Context context) {
@@ -80,15 +62,8 @@ public class SampleAdapter extends BaseExpandableListAdapter {
             convertView = mLayoutInflater.inflate(R.layout.sample_activity_list_group_item, parent, false);
         }
 
-        final ImageView image = (ImageView) convertView.findViewById(R.id.sample_activity_list_group_item_image);
-        image.setImageResource(mGroupDrawables[groupPosition]);
-
         final TextView text = (TextView) convertView.findViewById(R.id.sample_activity_list_group_item_text);
         text.setText(mGroups[groupPosition]);
-
-        final ImageView expandedImage = (ImageView) convertView.findViewById(R.id.sample_activity_list_group_expanded_image);
-        final int resId = isExpanded ? R.drawable.gear : R.drawable.gear;
-        expandedImage.setImageResource(resId);
 
         return convertView;
     }
