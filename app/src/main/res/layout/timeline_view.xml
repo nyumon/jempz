@@ -49,7 +49,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -105,12 +105,7 @@
 
                         </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="275sp"
-                            android:src="@drawable/macet"
-                            android:id="@+id/person_photo"
-                            android:scaleType="centerCrop" />
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -202,7 +197,19 @@
                         android:background="@color/line_color" />
 
                 </LinearLayout>
+
             </ScrollView>
+            <ListView
+                android:id="@+id/msgview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:divider="@null"
+                android:stackFromBottom="true"
+                android:transcriptMode="alwaysScroll">
+
+            </ListView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -215,7 +222,8 @@
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="2"
-                    android:hint="tuliskan komentar anda"
+                    android:hint="Tuliskan komentar anda"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="10sp"/>
 
                 <Button

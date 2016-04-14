@@ -25,6 +25,7 @@ import com.nyumon.jempol.Berlangganan.Berlangganan;
 
 import com.nyumon.jempol.Langganan.langganan;
 import com.nyumon.jempol.LokasiSama.LokasiSama;
+import com.nyumon.jempol.kategoriSama.KategoriSama;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void setPemberitahuan(View view){
         Intent intent = new Intent(this, Pemberitahuan.class);
+        startActivity(intent);
+    }
+
+    public void kekategorisama(View view){
+        Intent intent = new Intent(this, KategoriSama.class);
         startActivity(intent);
     }
 

@@ -1,4 +1,4 @@
-package com.nyumon.jempol.LokasiSama;
+package com.nyumon.jempol.kategoriSama;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,37 +13,39 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-
+import com.nyumon.jempol.kategoriSama.KategorisamaDataset;
 import com.nyumon.jempol.R;
 
 import java.util.ArrayList;
 
-public class LokasiSama extends AppCompatActivity {
-
+/**
+ * Created by fajar on 14/04/16.
+ */
+public class KategoriSama extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private LokasisamaAdapter adapter;
-    private ArrayList<LokasisamaDataset> DataSet;
+    private KategorisamaAdapter adapter;
+    private ArrayList<KategorisamaDataset> DataSet;
     private SwipeRefreshLayout refreshLayout;
     private GridLayoutManager llm;
     private View rootView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lokasi_sama);
+    protected void onCreate(Bundle savedIntanceState){
+        super.onCreate(savedIntanceState);
+        setContentView(R.layout.activity_kategori_sama);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        setTitle("Lokasi yang Sama");
+        setTitle("Kategori yang Sama");
 
         final ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.arrows);
 
-        refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh_lokasisama);
-        recyclerView  = (RecyclerView) findViewById(R.id.lokasama_Result);
+        refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh_kategorisama);
+        recyclerView  = (RecyclerView) findViewById(R.id.kategorisama_Result);
 
         DataSet       = new ArrayList<>();
         llm           = new GridLayoutManager(recyclerView.getContext(),3);
@@ -53,7 +55,7 @@ public class LokasiSama extends AppCompatActivity {
         recyclerView.setLayoutManager(llm);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        adapter = new LokasisamaAdapter(new LokasisamaAdapter.OnLoadMoreListener() {
+        adapter = new KategorisamaAdapter(new KategorisamaAdapter.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
 
@@ -69,7 +71,7 @@ public class LokasiSama extends AppCompatActivity {
                         int end = start + 5;
 
                         for (int i = start; i < end; i++) {
-                            DataSet.add(new LokasisamaDataset(1));
+                            DataSet.add(new KategorisamaDataset(1));
                         }
 
                         adapter.addItemMore(DataSet);
@@ -77,7 +79,7 @@ public class LokasiSama extends AppCompatActivity {
                     }
                 },2000);
             }
-        }, LokasiSama.this );
+        }, KategoriSama.this );
 
         adapter.setLinearLayoutManager(llm);
         adapter.setRecyclerView(recyclerView);
@@ -95,8 +97,6 @@ public class LokasiSama extends AppCompatActivity {
                 }, 2000);
             }
         });
-
-
     }
     @Override
     public void onStart() {
@@ -108,7 +108,7 @@ public class LokasiSama extends AppCompatActivity {
 
         DataSet.clear();
         for(int i=0; i<=10; i++) {
-            DataSet.add(new LokasisamaDataset(1));
+            DataSet.add(new KategorisamaDataset(1));
         }
         adapter.addAll(DataSet);
     }
@@ -124,6 +124,4 @@ public class LokasiSama extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }

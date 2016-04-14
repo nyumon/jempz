@@ -36,18 +36,29 @@
                 android:layout_width="16sp"
                 android:layout_height="16sp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/gps_grey"/>
+                android:src="@drawable/categories1"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Jl.Thamrin"
-                android:textSize="15sp"
+                android:hint="Kategori : "
                 android:textColorHint="@color/colorPrimary"
+                android:textSize="15sp"
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/textColorSecondary"
                 android:padding="5sp"
-                android:layout_weight="2"
+                android:layout_weight="0"
+                android:layout_span="2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Macet"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp"
+                android:textAppearance="@style/SmallText"
+                android:textColor="@color/textColorSecondary"
+                android:padding="5sp"
+                android:layout_weight="0"
                 android:layout_span="2"/>
 
         </LinearLayout>
@@ -58,12 +69,12 @@
             android:orientation="vertical"
             android:layout_marginTop="100sp">
             <android.support.v4.widget.SwipeRefreshLayout
-                android:id="@+id/swipe_refresh_lokasisama"
+                android:id="@+id/swipe_refresh_kategorisama"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/lokasama_Result"
+                    android:id="@+id/kategorisama_Result"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scrollbars="vertical"

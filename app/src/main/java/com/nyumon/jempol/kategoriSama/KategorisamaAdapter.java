@@ -1,8 +1,9 @@
-package com.nyumon.jempol.Timeline;
+package com.nyumon.jempol.kategoriSama;
 
-
+/**
+ * Created by fajar on 14/04/16.
+ */
 import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,21 +13,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.nyumon.jempol.MainActivity;
+import com.nyumon.jempol.kategoriSama.KategorisamaDataset;
 import com.nyumon.jempol.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Created by fajar on 04/04/16.
- */
-public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
-    private List<TimelineDataSet> DataSet;
-    public Context context;
+public class KategorisamaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private ArrayList<KategorisamaDataset> DataSet;
+    private Context context;
 
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
@@ -38,14 +34,19 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private OnLoadMoreListener onLoadMoreListener;
     private LinearLayoutManager linearLayoutManager;
 
-    public interface OnLoadMoreListener {
+    public KategorisamaAdapter() {
+
+    }
+
+
+    public interface OnLoadMoreListener{
         void onLoadMore();
     }
 
-    public TimelineAdapter(Context context, OnLoadMoreListener onLoadMoreListener) {
-        this.context            = context;
+    public KategorisamaAdapter(OnLoadMoreListener onLoadMoreListener, Context context) {
         this.onLoadMoreListener = onLoadMoreListener;
-        this.DataSet            = new ArrayList<TimelineDataSet>();
+        this.DataSet = new ArrayList<KategorisamaDataset>();
+        this.context = context;
     }
 
     public void setLinearLayoutManager(LinearLayoutManager linearLayoutManager) {
@@ -76,36 +77,31 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType){
-
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         if(viewType == VIEW_ITEM)
-            return new ItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.timeline, viewGroup, false));
+            return new ItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.showkategorisama, viewGroup, false));
         else
             return new ProgressViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.loadmore_view, viewGroup, false));
     }
 
-    public void addAll(ArrayList<TimelineDataSet> lst){
+    public void addAll(ArrayList<KategorisamaDataset> lst){
         DataSet.clear();
         DataSet.addAll(lst);
         notifyDataSetChanged();
     }
 
-    public void addItemMore(ArrayList<TimelineDataSet> lst){
+    public void addItemMore(ArrayList<KategorisamaDataset> lst){
         DataSet.addAll(lst);
         notifyItemRangeChanged(0, DataSet.size());
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder itemHolder, int position) {
 
-        if(holder instanceof ItemHolder) {
+        if(itemHolder instanceof ItemHolder) {
 
-            ((ItemHolder) holder).photoAkun.setImageResource(DataSet.get(position).getPhotoAkun());
-            ((ItemHolder) holder).countryName.setText(DataSet.get(position).getName());
-            ((ItemHolder) holder).countryTime.setText(DataSet.get(position).getTime());
-            ((ItemHolder) holder).countryPhoto.setImageResource(DataSet.get(position).getPhoto());
-            ((ItemHolder) holder).countryJudul.setText(DataSet.get(position).getJudul());
-            ((ItemHolder) holder).kategori.setText(DataSet.get(position).getKategori());
+            //((ItemHolder) itemHolder).ItemUsername.setText(DataSet.get(position).getIdgambar());
+            Picasso.with(context).load(R.drawable.cth).resize(275, 200).into(((ItemHolder) itemHolder).ItemImage);
 
         }
     }
@@ -114,9 +110,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.isMoreLoading = isMoreLoading;
     }
 
-    public int getItemCount() {
-        return DataSet.size();
-    }
+    public int getItemCount() { return DataSet.size(); }
 
     public void setProgressMore(final boolean isProgress) {
         if (isProgress) {
@@ -133,31 +127,17 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    static class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class ItemHolder extends RecyclerView.ViewHolder {
 
-        public TextView countryName;
-        public TextView countryTime;
-        public ImageView countryPhoto;
-        public ImageView photoAkun;
-        public TextView countryJudul;
-        public TextView kategori;
+        public TextView ItemUsername;
+        public ImageView ItemImage;
 
-        public ItemHolder(View itemView) {
-            super(itemView);
-            itemView.setOnClickListener(this);
 
-            countryName     = (TextView) itemView.findViewById(R.id.person_name);
-            countryTime     = (TextView) itemView.findViewById(R.id.person_age);
-            countryPhoto    = (ImageView) itemView.findViewById(R.id.person_photo);
-            photoAkun       = (ImageView) itemView.findViewById(R.id.photoAkun);
-            countryJudul    = (TextView) itemView.findViewById(R.id.judul);
-            kategori        = (TextView) itemView.findViewById(R.id.kategori);
-        }
+        public ItemHolder(View v) {
+            super(v);
+            //ItemUsername           = (TextView) v.findViewById(R.id.search_item_username);
+            ItemImage       = (ImageView) v.findViewById(R.id.kategorisama1);
 
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(view.getContext(), Timeline_View.class);
-            view.getContext().startActivity(intent);
         }
     }
 

@@ -144,26 +144,45 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="10sp"
-                android:paddingRight="10sp"
-                android:paddingBottom="10sp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/nama2"
-                    android:textAppearance="@style/NormalText"
-                    android:textColor="@color/linkColor"
-                    android:text="Macet"
-                    android:layout_marginRight="5dp"/>
+                android:paddingRight="10sp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5sp"
+                    android:onClick="kekategorisama">
+                    <ImageView
+                        android:layout_width="14sp"
+                        android:layout_height="14sp"
+                        android:src="@drawable/categories1"
+                        android:layout_gravity="center_vertical"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/NormalText"
+                        android:textColor="@color/linkColor"
+                        android:text="Kategori : "
+                        android:layout_marginRight="5dp"
+                        android:paddingLeft="5sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/kategori"
+                        android:text=".............."
+                        android:textColor="@color/colorAccent"
+                        android:textAppearance="@style/NormalText"
+                        android:layout_marginRight="5dp"/>
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textAppearance="@style/NormalText"
-                    android:textColor="@color/textColorPrimary"
-                    android:text="iahefhefdih"
-                    android:id="@+id/judul"/>
             </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@style/NormalText"
+                android:textColor="@color/textColorPrimary"
+                android:text="iahefhefdih"
+                android:id="@+id/judul"
+                android:layout_margin="10sp"/>
         </LinearLayout>
 
         <View
