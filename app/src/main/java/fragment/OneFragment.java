@@ -112,12 +112,12 @@ public class OneFragment extends Fragment {
 
         DataSet.clear();
 
-        DataSet.add(new TimelineDataSet(R.drawable.people, "Fajar Satria Akbar", "12 minute ago", R.drawable.macet, "Jalanan Macet"));
-        DataSet.add(new TimelineDataSet(R.drawable.people, "Ricky Ramadhan", "12 minute ago", R.drawable.macet, "Jalan disini macet"));
-        DataSet.add(new TimelineDataSet(R.drawable.people, "Rizky Hasibuan", "12 minute ago", R.drawable.macet, "Jgn lewat sini"));
-        DataSet.add(new TimelineDataSet(R.drawable.people, "Ridho Gusti", "12 minute ago", R.drawable.macet, "wiih macet kali cuy"));
-        DataSet.add(new TimelineDataSet(R.drawable.people, "Preman", "12 minute ago", R.drawable.macet, "bener kata atas gw"));
-        DataSet.add(new TimelineDataSet(R.drawable.people, "Albert", "1 hours ago", R.drawable.macet35, "Jalanan Macet Jalan disini macet Jgn lewat sini wiih macet kali cuy bener kata atas gw"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Fajar Satria Akbar", "12 minute ago", R.drawable.macet, "Macet", "Jalanan Macet"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Ricky Ramadhan", "12 minute ago", R.drawable.macet, "Banjir", "Jalan disini macet"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Rizky Hasibuan", "12 minute ago", R.drawable.macet, "Jalan Rusak", "Jgn lewat sini"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Ridho Gusti", "12 minute ago", R.drawable.macet, "Macet", "wiih macet kali cuy"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Preman", "12 minute ago", R.drawable.macet, "Macet", "bener kata atas gw"));
+        DataSet.add(new TimelineDataSet(R.drawable.people, "Albert", "1 hours ago", R.drawable.macet35, "Banjir", "Jalanan Macet Jalan disini macet Jgn lewat sini wiih macet kali cuy bener kata atas gw"));
 
         adapter.addAll(DataSet);
     }
