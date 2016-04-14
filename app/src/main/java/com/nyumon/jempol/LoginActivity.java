@@ -45,7 +45,7 @@ public class LoginActivity extends Activity {
 
     private Button   button_login, button_register;
     private EditText login_username, login_password;
-    private TextView forgot_password;
+    private Button forgot_password;
 
     private String username, password;
     private ConnectivityManager connectivityManager;
@@ -69,10 +69,14 @@ public class LoginActivity extends Activity {
         login_username  = (EditText) findViewById(R.id.login_username);
         login_password  = (EditText) findViewById(R.id.login_password);
 
-        forgot_password = (TextView) findViewById(R.id.forgot_password);
+        forgot_password = (Button) findViewById(R.id.forgot_password);
 
         context         = LoginActivity.this;
 
+    }
+    public void LupaPassword(View view){
+        Intent intent = new Intent(this, LupaPassword.class);
+        startActivity(intent);
     }
 
     public void invokeLogin(View view) {

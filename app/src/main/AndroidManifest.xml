@@ -34,6 +34,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".LupaPassword"/>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ModeratorActivity" />
         <activity

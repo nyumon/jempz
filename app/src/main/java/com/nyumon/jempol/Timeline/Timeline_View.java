@@ -50,8 +50,6 @@ public class Timeline_View extends AppCompatActivity {
         name = (TextView)findViewById(R.id.person_name);
         text = name.getText().toString();
 
-        setTitle("View");
-
         setTitle("Komentar");
         send = (Button) findViewById(R.id.send);
 
@@ -62,7 +60,7 @@ public class Timeline_View extends AppCompatActivity {
         chatText = (EditText) findViewById(R.id.msg);
         chatText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                if ((event.getAction() == KeyEvent.ACTION_UP) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     return sendChatMessage();
                 }
                 return false;

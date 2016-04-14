@@ -89,7 +89,7 @@
                 android:onClick="invokeRegister"
                 android:layout_marginTop="5sp"/>
 
-            <TextView
+            <Button
                 android:id="@+id/forgot_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,9 +98,9 @@
                 android:gravity="center"
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"
-                android:onClick="masuk"/>
+                android:onClick="LupaPassword"/>
          
-            <TextView
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20sp"
