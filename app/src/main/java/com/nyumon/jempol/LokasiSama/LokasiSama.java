@@ -36,7 +36,11 @@ public class LokasiSama extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         setTitle("Lokasi yang Sama");
+=======
+        setTitle("Lokasi yang sama");
+>>>>>>> fd6aceeca41dab41bf6effa77c3b3c01405e5c21
 =======
         setTitle("Lokasi yang sama");
 >>>>>>> fd6aceeca41dab41bf6effa77c3b3c01405e5c21
