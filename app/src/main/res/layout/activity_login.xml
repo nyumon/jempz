@@ -78,7 +78,6 @@
             android:onClick="invokeRegister"
             android:layout_marginTop="5sp"/>
 
-<<<<<<< HEAD
             <TextView
                 android:id="@+id/forgot_password"
                 android:layout_width="match_parent"
@@ -99,29 +98,8 @@
                 android:onClick="skip"
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"/>
-=======
-        <TextView
-            android:id="@+id/forgot_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20sp"
-            android:text="Lupa Password?"
-            android:gravity="center"
-            android:textAppearance="@style/SmallText"
-            android:textColor="@color/linkColor"
-            android:onClick="masuk"/>
-        <!--android:onClick="ForgotPassword"-->
-        <!--android:textColor="@color/linkColor"/>-->
->>>>>>> 6b433b60d62783ce8f3f36df3cf37d132c02fb7c
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lewati"
-            android:gravity="center"
-            android:onClick="skip"
-            android:textAppearance="@style/SmallText"
-            android:textColor="@color/linkColor"/>
+
 
     </LinearLayout>
 
