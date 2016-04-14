@@ -24,6 +24,7 @@ import com.nyumon.jempol.MyPost;
 import com.nyumon.jempol.R;
 import com.nyumon.jempol.RoundedImg;
 import com.nyumon.jempol.SuntingProfil;
+import com.nyumon.jempol.Timeline.Timeline_View;
 
 
 public class TwoFragment extends Fragment {
@@ -78,7 +79,7 @@ public class TwoFragment extends Fragment {
                                     int position, long id) {
 
                 // Sending image id to FullScreenActivity
-                Intent i = new Intent(getActivity(), MyPost.class);
+                Intent i = new Intent(getActivity(), Timeline_View.class);
                 // passing array index
                 i.putExtra("id", position);
                 startActivity(i);

@@ -17,7 +17,7 @@
         android:paddingRight="10sp"
         android:background="@color/windowBackground"
         android:id="@+id/cv"
-        android:onClick="kemypost">
+        android:onClick="kekomentarr">
 
         <LinearLayout
             android:id="@+id/konten"

@@ -22,15 +22,18 @@ public class ImageAdapter extends BaseAdapter {
 
     // Keep all Images in array
     public Integer[] mThumbIds = {
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol, R.drawable.jempol,
-            R.drawable.jempol
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet,
+            R.drawable.macet
     };
 
     public Integer[]addThumb=
@@ -67,7 +70,7 @@ public class ImageAdapter extends BaseAdapter {
         imageView.setImageResource(mThumbIds[position]);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-        imageView.setLayoutParams(new GridView.LayoutParams(100, 100));
+        imageView.setLayoutParams(new GridView.LayoutParams(180, 180));
         return imageView;
     }
 

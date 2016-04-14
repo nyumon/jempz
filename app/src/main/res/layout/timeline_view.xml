@@ -55,57 +55,68 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingLeft="10sp"
-                            android:paddingRight="10sp"
-                            android:paddingTop="5sp"
-                            android:paddingBottom="5sp">
+                            android:orientation="horizontal">
 
-                            <ImageButton
-                                android:layout_width="16sp"
-                                android:layout_height="16sp"
-                                android:src="@drawable/jempol"
-                                android:layout_gravity="center_vertical"
-                                android:id="@+id/photoAkun" />
-
-                            <TextView
-                                android:textAppearance="@style/NormalText"
-                                android:textColor="@color/linkColor"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="name"
-                                android:padding="5sp"
-                                android:id="@+id/person_name"/>
+                                android:orientation="horizontal"
+                                android:paddingLeft="10sp"
+                                android:paddingRight="10sp"
+                                android:paddingTop="5sp"
+                                android:layout_weight="1"
+                                android:paddingBottom="5sp">
 
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10sp"
-                            android:paddingRight="10sp"
-                            android:paddingTop="5sp"
-                            android:paddingBottom="5sp"
-                            android:onClick="kelokasisama">
+                                <ImageButton
+                                    android:layout_width="16sp"
+                                    android:layout_height="16sp"
+                                    android:src="@drawable/jempol"
+                                    android:layout_gravity="center_vertical"
+                                    android:id="@+id/photoAkun" />
 
-                            <ImageView
-                                android:layout_width="16sp"
-                                android:layout_height="16sp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/gps_grey"/>
+                                <TextView
+                                    android:textAppearance="@style/NormalText"
+                                    android:textColor="@color/linkColor"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="name"
+                                    android:padding="5sp"
+                                    android:id="@+id/person_name"/>
 
-                            <TextView
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:hint="Jl.Thamrin"
-                                android:textAppearance="@style/SmallText"
-                                android:textColor="@color/textColorSecondary"
-                                android:padding="5sp"
-                                android:layout_weight="2"
-                                android:layout_span="2"/>
+                                android:paddingLeft="10sp"
+                                android:paddingRight="10sp"
+                                android:paddingTop="5sp"
+                                android:paddingBottom="5sp"
+                                android:onClick="kelokasisama">
+
+                                <ImageView
+                                    android:layout_width="16sp"
+                                    android:layout_height="16sp"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@drawable/gps_grey"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Jl.Thamrin"
+                                    android:textAppearance="@style/SmallText"
+                                    android:textColor="@color/textColorSecondary"
+                                    android:padding="5sp"
+                                    android:layout_weight="2"
+                                    android:layout_span="2"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
-
-
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150sp"
+                            android:src="@drawable/macet" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -177,7 +188,7 @@
                                 android:id="@+id/nama2"
                                 android:textAppearance="@style/NormalText"
                                 android:textColor="@color/linkColor"
-                                android:text="name"
+                                android:text="Fajar Satria Akbar"
                                 android:layout_marginRight="5dp"/>
 
                             <TextView
@@ -185,7 +196,7 @@
                                 android:layout_height="match_parent"
                                 android:textAppearance="@style/NormalText"
                                 android:textColor="@color/textColorPrimary"
-                                android:text="disini lokasinya sangat macet"
+                                android:text="disini lokasinya sangat macet, bener macet kali loh, jangan mau lewat sini karena macet nanti kelen gak bisa jalan ...... coba cari alternative baru yaaaaaaaaaa :*"
                                 android:id="@+id/judul"/>
                         </LinearLayout>
 

@@ -21,6 +21,7 @@ import com.nyumon.jempol.Berlangganan.Berlangganan;
 
 import com.nyumon.jempol.Langganan.langganan;
 import com.nyumon.jempol.LokasiSama.LokasiSama;
+import com.nyumon.jempol.Timeline.Timeline_View;
 import com.nyumon.jempol.kategoriSama.KategoriSama;
 
 import java.util.ArrayList;
@@ -120,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void kemypost(View view){
-        Intent intent = new Intent(this, MyPost.class);
+    public void kekomentarr(View view){
+        Intent intent = new Intent(this, Timeline_View.class);
         startActivity(intent);
     }
 

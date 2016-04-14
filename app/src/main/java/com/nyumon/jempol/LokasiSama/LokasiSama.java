@@ -34,7 +34,6 @@ public class LokasiSama extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         setTitle("Lokasi yang Sama");
 
         final ActionBar actionBar = getSupportActionBar();
@@ -111,6 +110,7 @@ public class LokasiSama extends AppCompatActivity {
             DataSet.add(new LokasisamaDataset(1));
         }
         adapter.addAll(DataSet);
+
     }
 
     @Override
