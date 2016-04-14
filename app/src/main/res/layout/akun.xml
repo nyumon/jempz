@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -26,102 +27,63 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-            android:paddingTop="10sp">
+            android:background="@color/windowBackground">
+
             <ScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="30dp"
+                    android:padding="20dp"
                     android:orientation="vertical">
-
-
-
-                    <TextView
-                        android:id="@+id/suka"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="AKUN"
-                        android:textColor="#727272"
-                        android:layout_marginLeft="15dp"
-                        android:textSize="25dp"
-                        />
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="2dp"
-                        android:background="#b6b6b6">
-                    </View>
 
                     <TextView
                         android:id="@+id/SuntingProfil"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sunting Profil"
-                        android:textSize="15sp"
-                        android:paddingTop="10sp"
-                        android:paddingBottom="10sp"
+                        android:paddingTop="20sp"
+                        android:paddingBottom="20sp"
+                        android:textAppearance="@style/NormalText"
+                        android:textColor="@color/textColorPrimary"
                         android:onClick="Sunting1"/>
                     <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/subtitle_row">
+                        android:background="@color/line_color">
                     </View>
                     <TextView
                         android:id="@+id/UbahSandi"
-                        android:textColor="#727272"
-                        android:layout_marginLeft="5dp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Ubah Kata Sandi"
-                        android:paddingTop="10sp"
-                        android:paddingBottom="10sp"
-                        android:textSize="15sp"
+                        android:paddingTop="20sp"
+                        android:paddingBottom="20sp"
+                        android:textAppearance="@style/NormalText"
+                        android:textColor="@color/textColorPrimary"
                         android:onClick="keubahkatasandi"/>
                     <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/subtitle_row">
-                    </View>
-                    <TextView
-                        android:id="@+id/test"
-                        android:textColor="#727272"
-                        android:layout_marginLeft="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Berlangganan dengan Anda"
-                        android:paddingTop="10sp"
-                        android:paddingBottom="10sp"
-                        android:textSize="15sp"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="@color/subtitle_row">
-                    </View>
-
+                        android:background="@color/line_color"/>
 
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
 
                         <TextView
                             android:id="@+id/strakun"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="15sp"
+                            android:paddingTop="20sp"
+                            android:paddingBottom="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorPrimary"
+                            android:layout_weight="1"
                             android:text="Akun Privat"/>
 
                         <Switch
@@ -136,21 +98,20 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
+                        android:background="@color/line_color"/>
 
                     <TextView
-                        android:layout_marginLeft="15dp"
+                        android:padding="20sp"
+                        android:textAppearance="@style/NormalText"
+                        android:textColor="@color/textColorSecondary"
                         android:id="@+id/pil_switch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""/>
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
                 </LinearLayout>
+
             </ScrollView>
 
         </android.support.v4.widget.DrawerLayout>

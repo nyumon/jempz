@@ -26,208 +26,184 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-            android:paddingTop="10sp">
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:background="@color/windowBackground">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="30dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
-
-                <TextView
-                    android:id="@+id/suka"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SUKA"
-                    android:textColor="#727272"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="25dp"
-                    />
-                <View
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:background="#b6b6b6">
-                </View>
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:padding="20sp"
                     android:orientation="vertical">
-                    <RadioButton android:id="@+id/radio_suka_mati"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Mati"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonSuka"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                    <RadioButton android:id="@+id/radio_suka_Ikut"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Dari Orang yang Saya Ikuti"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonSuka"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                    <RadioButton android:id="@+id/radio_suka_semua"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Dari Semua Orang"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonSuka"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                </RadioGroup>
 
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:id="@+id/komentar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="KOMENTAR"
-                    android:textColor="#727272"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="25dp"
-                    />
-                <View
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:background="#b6b6b6">
-                </View>
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <RadioButton android:id="@+id/radio_komentar_mati"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/suka"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Mati"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonKomentar"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                    <RadioButton android:id="@+id/radio_komentar_Ikut"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Dari Orang yang Saya Ikuti"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonKomentar"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                    <RadioButton android:id="@+id/radio_komentar_semua"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Dari Semua Orang"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonKomentar"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                </RadioGroup>
+                        android:text="Menyukai laporan anda"
+                        android:textAppearance="@style/LargeText"
+                        android:textColor="@color/textColorPrimary"/>
 
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:id="@+id/berlangganan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="BERLANGGANAN"
-                    android:textColor="#727272"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="25dp"
-                    />
-                <View
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:background="#b6b6b6">
-                </View>
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <RadioButton android:id="@+id/radio_berlangganan_mati"
-                        android:layout_width="wrap_content"
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Mati"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonLanggan"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                    <RadioButton android:id="@+id/radio_berlangganan_Hidup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#727272"
-                        android:text="Hidup"
-                        android:textSize="15sp"
-                        android:onClick="onRadioButtonLanggan"/>
-                    <View
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#b6b6b6">
-                    </View>
-                </RadioGroup>
+                        android:orientation="vertical"
+                        android:paddingTop="20sp"
+                        android:paddingBottom="20sp">
 
-            </LinearLayout>
-        </ScrollView>
+                        <RadioButton android:id="@+id/radio_suka_mati"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mati"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:onClick="onRadioButtonSuka"
+                            android:checked="true"/>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+
+                        <RadioButton android:id="@+id/radio_suka_Ikut"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:text="Dari orang yang berlangganan"
+                            android:onClick="onRadioButtonSuka"/>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+
+                        <RadioButton android:id="@+id/radio_suka_semua"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:text="Dari Semua Orang"
+                            android:onClick="onRadioButtonSuka"/>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/komentar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mengomentari kiriman anda"
+                        android:textAppearance="@style/LargeText"
+                        android:textColor="@color/textColorPrimary"
+                        />
+
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="20sp"
+                        android:paddingBottom="20sp">
+
+                        <RadioButton android:id="@+id/radio_komentar_mati"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:text="Mati"
+                            android:onClick="onRadioButtonKomentar"/>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+                        <RadioButton android:id="@+id/radio_komentar_Ikut"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dari orang yang berlangganan"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:onClick="onRadioButtonKomentar"/>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+                        <RadioButton android:id="@+id/radio_komentar_semua"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dari semua orang"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:onClick="onRadioButtonKomentar"
+                            android:checked="true"/>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/berlangganan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Brelangganan akun anda"
+                        android:textAppearance="@style/LargeText"
+                        android:textColor="@color/textColorPrimary"
+                        />
+
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="20sp"
+                        android:paddingBottom="20sp">
+
+                        <RadioButton android:id="@+id/radio_berlangganan_mati"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:text="Mati"
+                            android:onClick="onRadioButtonLanggan"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+
+                        <RadioButton android:id="@+id/radio_berlangganan_Hidup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="20sp"
+                            android:textAppearance="@style/NormalText"
+                            android:textColor="@color/textColorSecondary"
+                            android:text="Hidup"
+                            android:onClick="onRadioButtonLanggan"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color">
+                        </View>
+                    </RadioGroup>
+
+                </LinearLayout>
+            </ScrollView>
 
         </android.support.v4.widget.DrawerLayout>
 
