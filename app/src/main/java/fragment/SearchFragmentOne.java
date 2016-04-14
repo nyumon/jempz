@@ -133,7 +133,10 @@ public class SearchFragmentOne extends Fragment {
                     pbar.setVisibility(View.GONE);
 
                 }
-                getData(newText);
+                else {
+                    pbar.setVisibility(View.VISIBLE);
+                    getData(newText);
+                }
 
                 return false;
             }
@@ -182,8 +185,6 @@ public class SearchFragmentOne extends Fragment {
             username    = collect.getString(config.KEY_USERNAME);
             displayname = collect.getString(config.KEY_DISPLAYNAME);
 
-            Toast.makeText(getActivity(), username + displayname + "dsef", Toast.LENGTH_LONG).show();
-
             for(Integer i=0; i<length; i++) {
                 DataSet.add(new SearchPeopleDataSet(username, displayname, 1000+(24*i), 1000+(24*i), (i%2)==0?true:false));
             }
@@ -193,8 +194,7 @@ public class SearchFragmentOne extends Fragment {
             e.printStackTrace();
         }
 
-        Toast.makeText(getActivity(), username + displayname + "dsef", Toast.LENGTH_LONG).show();
-
+        pbar.setVisibility(View.GONE);
         adapter.addAll(DataSet);
 
     }

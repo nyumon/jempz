@@ -74,8 +74,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10sp"
                 android:id="@+id/nama"
-                android:text="Ricky Ramadhan"
-                android:textSize="20sp"
+                android:text="Lorem Ipsum"
+                android:textAppearance="@style/BigText"
                 android:textColor="@color/windowBackground"
                 android:gravity="center"/>
             <TableLayout
@@ -88,34 +88,41 @@
                     android:layout_width="fill_parent"
                     android:gravity="center_horizontal"
                     android:layout_marginTop="5sp"
-                    android:layout_weight="1">
+                    android:background="@color/cardview_shadow_end_color"
+                    android:layout_weight="1"
+                    android:weightSum="3">
+
                     <TextView
                         android:id="@+id/totalberlangganan"
                         android:text="2012 \n Berlangganan"
-                        android:layout_marginRight="10sp"
-                        android:layout_marginLeft="15sp"
                         android:textColor="@color/colorSecondary"
                         android:padding="20dip"
                         android:gravity="center"
-                        android:onClick="keberlangganan"/>
+                        android:layout_weight="1"
+                        android:textAppearance="@style/SmallText"
+                        android:onClick="keberlangganan"
+                        android:layout_gravity="center_horizontal"/>
 
                     <TextView
                         android:id="@+id/totallangganan"
-                        android:text="2013 \n Langganan"
+                        android:text="2013 \n Langganan   "
                         android:textColor="@color/colorSecondary"
-                        android:layout_marginRight="10sp"
                         android:padding=  "20dip"
                         android:gravity="center"
-                        android:layout_gravity="right"
-                        android:onClick="keLangganan"/>
+                        android:layout_weight="1"
+                        android:textAppearance="@style/SmallText"
+                        android:onClick="keLangganan"
+                        android:layout_gravity="center_horizontal"/>
+
                     <TextView
                         android:id="@+id/Totalpost"
                         android:text="100 \n Laporan"
+                        android:layout_weight="2"
                         android:textColor="@color/colorSecondary"
-                        android:layout_marginRight="15sp"
                         android:padding=  "20dip"
                         android:gravity="center"
-                        android:layout_gravity="right"/>
+                        android:textAppearance="@style/SmallText"
+                        android:layout_gravity="center_horizontal"/>
                 </TableRow>
             </TableLayout>
 
@@ -125,10 +132,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
                 android:text="Laporan Saya"
-                android:padding="10sp"
-                android:textSize="15sp"
+                android:padding="20sp"
+                android:textAppearance="@style/SmallText"
                 android:gravity="center"/>
             <View
                 android:layout_width="wrap_content"
