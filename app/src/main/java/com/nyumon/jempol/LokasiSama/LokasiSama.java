@@ -35,7 +35,7 @@ public class LokasiSama extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        setTitle("Langganan");
+        setTitle("Lokasi yang sama");
 
         final ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
@@ -66,7 +66,7 @@ public class LokasiSama extends AppCompatActivity {
                         adapter.setProgressMore(false);
 
                         int start = adapter.getItemCount();
-                        int end = start + 5;
+                        int end = start + 6;
 
                         for (int i = start; i < end; i++) {
                             DataSet.add(new LokasisamaDataset(1));
@@ -107,7 +107,7 @@ public class LokasiSama extends AppCompatActivity {
     public void initDataSet() {
 
         DataSet.clear();
-        for(int i=0; i<=10; i++) {
+        for(int i=0; i<12; i++) {
             DataSet.add(new LokasisamaDataset(1));
         }
         adapter.addAll(DataSet);
