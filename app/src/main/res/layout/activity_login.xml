@@ -87,15 +87,9 @@
                 android:gravity="center"
                 android:textAppearance="@style/SmallText"
                 android:textColor="@color/linkColor"
-<<<<<<< HEAD
                 android:onClick="LupaPassword"/>
-         
-            <Button
-=======
-                android:onClick="masuk"/>
 
             <TextView
->>>>>>> 76d73d7f0ef9e39865de24be35be040b9a134368
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20sp"
