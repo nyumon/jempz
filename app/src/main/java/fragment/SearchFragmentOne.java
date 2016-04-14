@@ -133,7 +133,9 @@ public class SearchFragmentOne extends Fragment {
                     pbar.setVisibility(View.GONE);
 
                 }
-                getData(newText);
+                else {
+                    getData(newText);
+                }
 
                 return false;
             }
@@ -151,6 +153,7 @@ public class SearchFragmentOne extends Fragment {
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                pbar.setVisibility(View.GONE);
                 showJSON(response);
 
             }
@@ -182,8 +185,7 @@ public class SearchFragmentOne extends Fragment {
             username    = collect.getString(config.KEY_USERNAME);
             displayname = collect.getString(config.KEY_DISPLAYNAME);
 
-            Toast.makeText(getActivity(), username + displayname + "dsef", Toast.LENGTH_LONG).show();
-
+            DataSet.clear();
             for(Integer i=0; i<length; i++) {
                 DataSet.add(new SearchPeopleDataSet(username, displayname, 1000+(24*i), 1000+(24*i), (i%2)==0?true:false));
             }
@@ -192,8 +194,6 @@ public class SearchFragmentOne extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        Toast.makeText(getActivity(), username + displayname + "dsef", Toast.LENGTH_LONG).show();
 
         adapter.addAll(DataSet);
 
