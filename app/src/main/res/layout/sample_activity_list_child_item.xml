@@ -23,7 +23,7 @@
                 android:id="@+id/postThumb"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/jempol"
+                android:src="@drawable/cth2"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout

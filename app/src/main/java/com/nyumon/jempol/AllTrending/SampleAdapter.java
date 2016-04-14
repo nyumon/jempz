@@ -31,9 +31,9 @@ public class SampleAdapter extends BaseExpandableListAdapter {
     };
 
     private final String[][] mChilds = {
-            {"1.5"},
-            {"1.6"},
-            {"2.0","2.0.1","2.1"}
+            {"Banjir"},
+            {"Macet"},
+            {"Banjir","Banjir","Banjir"}
     };
 
     public SampleAdapter(Context context) {
