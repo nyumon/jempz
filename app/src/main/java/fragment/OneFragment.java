@@ -3,6 +3,7 @@ package fragment;
 /**
  * Created by com.nyumon on 23/03/16.
  */
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nyumon.jempol.ProfilTeman;
 import com.nyumon.jempol.Timeline.TimelineDataSet;
 import com.nyumon.jempol.R;
 import com.nyumon.jempol.Timeline.TimelineAdapter;
