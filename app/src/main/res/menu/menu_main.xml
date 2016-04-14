@@ -4,12 +4,6 @@
     tools:context="com.nyumon.jempol.MainActivity">
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/action_search"
         android:title="search"
         android:orderInCategory="200"

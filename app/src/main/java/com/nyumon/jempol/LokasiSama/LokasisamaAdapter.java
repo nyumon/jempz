@@ -103,7 +103,7 @@ public class LokasisamaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if(itemHolder instanceof ItemHolder) {
 
             //((ItemHolder) itemHolder).ItemUsername.setText(DataSet.get(position).getIdgambar());
-            Picasso.with(context).load(R.drawable.cth).resize(275, 200).into(((ItemHolder) itemHolder).ItemImage);
+            Picasso.with(context).load(R.drawable.cth).resize(300, 250).into(((ItemHolder) itemHolder).ItemImage);
 
     }
     }
