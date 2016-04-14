@@ -52,21 +52,21 @@ public class ThreeFragment extends Fragment {
     int[] resource = {
             R.drawable.jempol,
             R.drawable.macet,
-            R.drawable.jempol,
+            R.drawable.macet35,
             R.drawable.macet,
             R.drawable.jempol
     };
     int[] resource2 = {
             R.drawable.add1,
             R.drawable.macet,
-            R.drawable.add1,
+            R.drawable.macet35,
             R.drawable.macet,
             R.drawable.add1
     };
     int[] resource3 = {
             R.drawable.macet,
             R.drawable.jempol,
-            R.drawable.macet,
+            R.drawable.macet35,
             R.drawable.jempol,
             R.drawable.macet
     };
