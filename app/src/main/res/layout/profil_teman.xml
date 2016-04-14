@@ -118,7 +118,7 @@
                                     android:layout_weight="1"
                                     android:textAppearance="@style/SmallText"
                                     android:onClick="keberlangganan"
-                                    android:layout_gravity="center_horizontal"/>
+                                    android:layout_gravity="center_horizontal" />
 
                                 <TextView
                                     android:id="@+id/totallangganan"
